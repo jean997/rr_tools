@@ -1,13 +1,11 @@
 ---
 title: "File and Directory Organization"
-author: "jean997"
-date: "2020-10-21"
+author: "Jean Morrison"
+date: "`r Sys.Date()`"
 output: workflowr::wflow_html
 editor_options:
   chunk_output_type: console
 ---
-
-## Introduction
 
 
 The first step of trying to reproduce an analysis is figuring out where the old analysis is and how you did it. Towards this end it is good to have some overarching organizational structure for your digital content. This is a personal matter that everyone will sort out for themselves but you should give it some thought. 
@@ -22,13 +20,12 @@ YYYY_project_name:
         YYYY-MM-DD_analysis_name2:
     simulations:
         YYYY-MM-DD_simulations_name1:
-        YYYY-MM-DD_analysis_name2:
+        YYYY-MM-DD_simulations_name2:
     R_package_directory:
     reports:
     data:
 ```
 
-+ If you pre-pend directory and file names with the date in `YYYY-MM-DD` format they will automatically be ordered chronologically which in some cases is exactly what you want.
-+ Putting dates in file/directory names will also make it easy to find what you are looking for later. 
++ If you pre-pend directory and file names with the date in `YYYY-MM-DD` format they will automatically be ordered chronologically which in some cases is exactly what you want. It will also make it easier to find things later.  I think I got this tip from a tweet by Jenny Bryan and it has made my life a lot better. 
 + If some of your project material lives in other places in your filesystem you can create symbolic links in your main project directory. In linux you can create symbolic links using `ln -s`. Read more [here](). 
 

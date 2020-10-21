@@ -26,14 +26,23 @@ This website was built using `workflowr` which I cover in the section on "Workbo
 ## Content
 
 1. [File Names and Directory Structure](file_org.html)
-1. [Version Control](version_control.html)
+1. [Version Control (Git)](version_control.html)
+    + Git
 1. [Code and Programming Practices](programming.html)
 1. [Workbooks and Reports](workbooks.html)
+    + R Markdown and Sweave with `knitr`.
+    + `workflowr` for project organization
 1. [Pipelines](pipelines.html)
+    + Snakemake
+    + DSC for simulations
 
 
 ## Resources
 
 [Advanced R Book](http://adv-r.had.co.nz/) by Hadley Wickham
+
 [R Packages Book](https://r-pkgs.org/) by Hadley Wickham
+
 [Efficient R](https://csgillespie.github.io/efficientR) by Collin Gillespe and Robin Lovelace
+
+[Happy Git with R](https://happygitwithr.com/)

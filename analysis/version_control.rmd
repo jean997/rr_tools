@@ -1,5 +1,5 @@
 ---
-title: "Version Control"
+title: "Version Control (Git)"
 author: "Jean Morrison"
 date:  "`r Sys.Date()`"
 output: workflowr::wflow_html
@@ -7,11 +7,26 @@ editor_options:
   chunk_output_type: console
 ---
 
-## Introduction
+## What is Git and Why Should I Use It?
+
+Version control is a way to track the status of a project over time. If you are tracking a set of files (a "repository") with Git, you can see the history of every change that's been made since you started tracking. Importantly, you can also "rewind" your repository to a time before something went wrong. 
 
 
+Here I will only talk about Git but there are other options. Git + GitHub is pretty much standard for the types of projects we usually do in statistics/biostatistics/data science.
+GitHub is an online collection of Git repositories. If you are working on a project and want to share it with the world (or your adviser or your collaborator), you can put it on GitHub (I have also used GitLab they are very similar). Git + GitHub makes it easy for multiple people to work simultaneously on the same project without conflicts. 
 
-```{r}
+You can find a much better and more thorough intro to Git and GitHub in [Happy Git with R](https://happygitwithr.com/) by Jenny Bryan. This is a sort of R specific resource but Git can be used to track anything -- track your manuscripts! track your data sets! track your homework! 
 
-```
+Getting going with Git is a little obnoxious but once you are using it, it makes life better. Gone are worries about irretrievably breaking a complicated web of code or deleting an important file. 
 
+
+## Why is Git important for Reproducibility?
+
+If a repository is being tracked by Git, each "commit" has a unique identifier. If/when the time comes that you need to reproduce something you did years ago, you will need to be able to locate the code you used. For an analysis that you know you might want to reproduce, you can record the repository version and then even if later down the road the code changes, you will still be able to recover a snapshot of what things looked like at the time of the analysis. Of course you may also need to know the versions of any other software you were using which Git can't help you with. More on that to come!
+
+
+## Resources 
+
+[Happy Git with R](https://happygitwithr.com/)
+
+[Git chapter from R Packages Book](https://r-pkgs.org/git.html)
