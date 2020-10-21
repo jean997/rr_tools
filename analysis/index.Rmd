@@ -15,7 +15,7 @@ The aim of this website is to give an overview of several tools for reproducible
 Here are some caveats before we get going: 
 
 + This is not an exhaustive list. If you have something that you use and like I would love to know about it and add it in. Feel free to open a [GitHub Issue]() and let me know about it!
-+ This website doesn't attempt to give a thorough or exhaustive tutorial for any of the tools I cover. Instead think of it as an aggregation of useful things that have already been well documented by their creators. I'll do my best to supply all the links you need to get going with each thing. Please let me know if you find a broken link.
++ This website doesn't attempt to give a thorough or exhaustive tutorial for any of the tools I cover. Instead think of it as an aggregation of useful things that have already been well documented others. I'll do my best to supply all the links you need to get going with each thing. Please let me know if you find a broken link.
 + I am mostly an R user so some of these tools are sort of R focused. Where I know about Python options I give those and many tools and practices are language agnostic.
 
 This website was built using `workflowr` which I cover in the section on "Workbooks and Reports" below!
