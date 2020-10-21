@@ -1,7 +1,7 @@
-name: "RR Tools and Practices"
+name: "RR Tools and Tips"
 output_dir: ../docs
 navbar:
-  title: "rr_tools"
+  title: "Reproducible Research Tools and Tips"
   left:
   - text: Home
     href: index.html
