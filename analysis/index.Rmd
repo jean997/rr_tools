@@ -30,7 +30,7 @@ This website was built using `workflowr` which I cover in the section on "Workbo
     + Git
 1. [Code and Programming Practices](programming.html)
 1. [Workbooks and Reports](workbooks.html)
-    + R Markdown and Sweave with `knitr`.
+    + R Markdown and Sweave with `knitr`
     + `workflowr` for project organization
 1. [Pipelines](pipelines.html)
     + Snakemake
