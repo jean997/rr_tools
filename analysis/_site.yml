@@ -1,12 +1,10 @@
-name: "rr_tools"
+name: "RR Tools and Practices"
 output_dir: ../docs
 navbar:
   title: "rr_tools"
   left:
   - text: Home
     href: index.html
-  - text: About
-    href: about.html
   - text: License
     href: license.html
 output:
