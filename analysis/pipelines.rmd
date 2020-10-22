@@ -1,0 +1,51 @@
+---
+title: "Pipelines"
+author: "Jean Morrison"
+date: "`r Sys.Date()`"
+output: workflowr::wflow_html
+editor_options:
+  chunk_output_type: console
+---
+
+## Introduction
+
+A pipeline is just a series of analysis steps that need to be completed to get to a final result. The first time you build a pipeline you might just have a directory with some code and a Readme in it that says 
+
+```
+Step 1: Run script a.sh to generate file A
+Step 2: Run script b.R to generate files B1 to B100
+Step 3: Run script final.py with A and B1 to B100 to generate final_output.tsv
+```
+
+This is an ok way to do it! You have documentation that tells you what you did and all the code exists in one directory. Chances are, if you had to, you could recreate `final_output.tsv`, especially if you saved some info about what package versions you used. 
+
+## What can go wrong why do it differently?
+
++ Your colleague would like to use your pipeline but finds it complicated. Also they would like to use slightly different parameters in one of the scripts. You could send them an email that says "Here is the code, you just need to change lines 7 and 25 of a.sh and line 15 of b.R." but there is a lot of room for error there. 
+
++ You accidentally modify an file A and don't notice before you regenerate your final result. 
+
++ You edit one of your scripts after generating the result and forget to rerun the pipeline. 
+
+There are pipeline tools that can help you avoid at least the first two of these problems and also do a lot of the overhead of managing job submission to a cluster. I have only used Snakemake which I will describe here but there are other options.  
+
+
+I will also mention a specialized tool, DSC which is especially for running simulations and makes it easy to track simulated data sets and add replicates or new analysis methods. DSC is also one of my favorite things. I highly recommend giving it a try. 
+
+## Snakemake
+
+[Snakemake](https://snakemake.readthedocs.io/en/stable/) is a pipeline building tool that is based on the syntax ideas of a make file. If you have never written a make file, don't worry, you don't need to be able to do that to do this. Learning to use Snakemake is definitely a bit of a time investment but it is worth it. For me, here are the major up sides:
+
++ I don't have to manage cluster submission. I only need to know how to run each step and the inputs and outputs of each step. Snakemake will figure out the order, what can be run simultaneously and will submit jobs to a compute cluster with different amounts of memory or time constraints. 
+
++ I can restart a paused analysis from the middle without worrying about which files are ok. Snakemake will check time stamps and make sure that none of the upstream files have changed before running later jobs. 
+
++ It makes an analysis easy to customize. You can provide options in a config file like output directory or input data or parameters. So you can use the same code to run a lot of different analyses by just making a new config file. 
+
+[Here](https://github.com/jean997/cause/tree/master/pipeline_code) is an example of a pipeline that I wrote for performing Mendelian randomization analysis for user specified pairs of traits to give a sense of what it looks like. The file `Snakefile` is the pipeline while `config.yaml` and `cluster.yaml` specify analysis parameters and how much memory/time/cores each step needs respectively. 
+
+To start to get an idea of how it works [start here](https://snakemake.readthedocs.io/en/stable/tutorial/short.html) and then look at the full tutorial. 
+
+## DSC
+
+[DSC](https://stephenslab.github.io/dsc-wiki/overview) is a tool created by Gao Wang and Matthew Stephens. It stands for "dynamic statistical comparisons" and it is a tool for running simulations. Like Snakemake, DSC takes a bit of effort to learn. Once that effort is put in though the payoff is immediate. You never have to write another loop function to run simulations for you. DSC also takes care of setting seeds for each simulation so every analysis is reproducible. Re-running the same DSC job should give exactly the same results. 

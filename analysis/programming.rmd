@@ -1,0 +1,41 @@
+---
+title: "Programing Tips for Reproducibility"
+author: "Jean Morrison"
+date: "`r Sys.Date()`"
+output: workflowr::wflow_html
+editor_options:
+  chunk_output_type: console
+---
+
+## Programing Tips for Reproducibility
+
+
+Because I am an R programmer a lot of these are given with sort of an R cadence but apply more or less as well for Python.
+
++ If you need to do the same task more than once write a function.
+
++ If you have written more than one function, make a package. [R Pakcages](https://r-pkgs.org/) by Hadley Wickham is great and will show you how to do it.
+
++ Document your code! Document your package using `roxygen2` (see [Chapter 10](https://r-pkgs.org/man.html)). Later write some vignettes so you can remember how to use it and so others can easily figure it out. 
+
++ Consider adding unit tests to your code using `test_that`. 
+
++ If you want, you can make a website for your package with [`pkgedown`](https://pkgdown.r-lib.org/articles/pkgdown.html). `pkgdown` will take all the documentation for your package and turn it into a website. 
+
++ RStudio makes a lot of the other reproducibility tools easier including Git/GitHub and RMarkdown. 
+
+## Things to avoid in R scripts
+
+These tips are specifically for code that you will save a run again either at the command line using `Rscript` or as part of a package. If you are using R interactively these don't apply (except the last one).
+
++ Change the working directory (`setwd`).
+
++ If you are sourcing in other R scripts consider making a package instead or turning your analysis into a [pipeline](pipelines.html).
+
++ Be careful if you are having R run commands at the command line (`system`). Again, you might think about making a pipeline. 
+
++ Remove variables from the workspace with `rm`.
+
++ Avoid hard coding input and output files. It's better to pass these in as options.  This can help prevent you from overwriting results without realizing it and save you from errors if you move something. 
+
++ If working interactively avoid saving your workspace (when exiting you will be asked if you want to save or in RStudio you can set a default). If a workspace is saved (`.RData` exists), it will be loaded the next time you start R in that directory. If you don't notice, now you have variables in your workspace from the previous analysis!

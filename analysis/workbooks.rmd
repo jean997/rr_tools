@@ -1,0 +1,77 @@
+---
+title: "Workbooks and Reports"
+author: "Jean Morrison"
+date: "`r Sys.Date()`"
+output: workflowr::wflow_html
+editor_options:
+  chunk_output_type: console
+---
+
+## Dynamic Reports
+
+Dynamic reports mix text and code. The key feature of a dynamic report is that when the document is "rendered" all of the code is executed in order from a clean slate. So the rendering of the document is a testament to the reproducibility of its contents. 
+
+Dynamic reports can be used for entire analyses or just for summarizing a larger analysis that had to be run on a compute cluster. They are a convenient way to insert plots and summaries into your text, save you the headache of accurately copying numbers over and mean that you always know the version of the analysis or data that goes with your report. 
+
+I have used two methods to created dynamic reports, both using R. The first is R Markdown (see [R Markdown Cookbook](https://bookdown.org/yihui/rmarkdown-cookbook/)) which using markdown syntax which is simple and intuitive. The second is Sweave (intro [here](https://rpubs.com/YaRrr/SweaveIntro)) which integrates R code with LaTex syntax giving you access to a wider array of formatting options. In the past several years I have preferred R Markdown because it is faster to write and easier to render into multiple different formats (it is easy to change from html to pdf or vice versa). Both Sweave and R Markdown are powered by `knitr` so code display options are the same between the two. 
+
+For Python there is [Juptyr Notebook/Jupityr Lab](https://jupyter.org/) which I believe has very similar functionality to R Markdown. 
+
+## When to use dynamic reports
+
+You will probably use dynamic reports most often when you are summarizing your analysis for yourself or for someone you want to share it with. It is possible to make dynamic reports look more or less "professional" by controlling what output to show. For your adviser you might let all the code show while for someone who cares less about the code you might hide most of it and only show plots and formatted tables. 
+
+I have used R Markdown and Sweave for "final" reports that I sent to collaborators (I think I also used one for my applied exam in graduate school) but I don't use them for manuscripts that go to journals because, typically journals either want the source LaTex code to compile all on its own without running anything extra or they want a Word document. One tool that is useful for these cases is the [`xtable` R package](https://cran.r-project.org/web/packages/xtable/vignettes/xtableGallery.pdf) which allows you to print R tables out as LaTex formatted code. You might use `xtable` inside a dynamic report to make it look nice or you might copy the output and paste it into your (static) LaTex file. 
+
+## R Markdown
+
+This whole website is actually made out of dynamic reports that are written in R Markdown and then stitched into a website using `workflowr` (more below). So far we haven't actually used any R code. Here is a bit of code to give a flavor of what that looks like. 
+
+Here is a plot of the famous iris data set which is one of R's built in data sets. 
+
+
+```{r, hold=TRUE, warn=FALSE, message=FALSE}
+library(ggplot2)
+
+data(iris)
+head(iris)
+ggplot(iris) + geom_point(aes(x=Sepal.Length, y = Petal.Length, color=Species))
+```
+
+
+By default, R Markdown will display the code followed by the output but if we wanted a very clean look, we could suppress showing the code. There are tons of code chunk options that control how code and results are displayed. Check [here](https://yihui.org/knitr/options/) for a full list. These will also work with Sweave. 
+
+It is also possible to use R code in line. For example the text
+
+```{r, results='asis', echo=FALSE}
+cat("The Iris data have `` `r nrow(iris)` `` observations.")
+```
+
+renders as 
+
+The Iris data have `r nrow(iris)` observations. 
+
+
+To create an R Markdown document using RStudio, just choose the R Markdown option under File -> New File. In RStudio you can then view your document by clicking the "Knit" button. If you want to use a different development environment or for some reason can't use RStudio, simply write you R Markdown document like any other text file and then render it using `rmarkdown::render()`.
+
+
+A good command to know about is `knitr::purl` which will extract only the code bits from your R Markdown or Sweave file and write them to their own R script. 
+
+## workflowr
+
+[`workflowr`](https://jdblischak.github.io/workflowr/), developed by John Blischak is one of my favorite reproducible research tools! 
+`workflowr` helps you put many R Markdown files describing analyses together into a research website. 
+
+
+This is a great way to aggregate all of the analyses you've done for a project in one place so it is easy to see and share your work. It is also useful for making a companion site for your paper which may ultimately just be a cleaned up version of the research site you've been using throughout the project. 
+
+[Here]() is an example of paper companion site built using `workflowr`. 
+
+
+
+
+## Resources
+
+[R Markdown Cookbook](https://bookdown.org/yihui/rmarkdown-cookbook/) by Yihui Xie, Christophe Dervieux, and Emily Riederer
+
+[`workflowr`](https://jdblischak.github.io/workflowr/) developed by John Blischak
