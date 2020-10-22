@@ -13,7 +13,7 @@
 
 <meta name="date" content="2020-10-21" />
 
-<title>File and Directory Organization</title>
+<title>Workbooks and Reports</title>
 
 <script src="site_libs/header-attrs-2.3/header-attrs.js"></script>
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
@@ -378,7 +378,7 @@ div.tocify {
 
 
 
-<h1 class="title toc-ignore">File and Directory Organization</h1>
+<h1 class="title toc-ignore">Workbooks and Reports</h1>
 <h4 class="author">Jean Morrison</h4>
 <h4 class="date">2020-10-21</h4>
 
@@ -532,7 +532,7 @@ Note that any generated files, e.g. HTML, png, CSS, etc., are not included in t
 <div id="versions" class="tab-pane fade">
 
 <p>
-These are the previous versions of the repository in which changes were made to the R Markdown (<code>analysis/file_org.rmd</code>) and HTML (<code>docs/file_org.html</code>) files. If you’ve configured a remote Git repository (see <code>?wflow_git_remote</code>), click on the hyperlinks in the table below to view the files as they were in that past version.
+These are the previous versions of the repository in which changes were made to the R Markdown (<code>analysis/workbooks.rmd</code>) and HTML (<code>docs/workbooks.html</code>) files. If you’ve configured a remote Git repository (see <code>?wflow_git_remote</code>), click on the hyperlinks in the table below to view the files as they were in that past version.
 </p>
 <div class="table-responsive">
 <table class="table table-condensed table-hover">
@@ -561,7 +561,7 @@ Message
 Rmd
 </td>
 <td>
-<a href="https://github.com/jean997/rr_tools/blob/94f0bf7f13dfe34b1ba8eac90a1df03f499d0c96/analysis/file_org.rmd" target="_blank">94f0bf7</a>
+<a href="https://github.com/jean997/rr_tools/blob/3e16a7b0a8c50bfbe1aaf94961fa20474e8b7de0/analysis/workbooks.rmd" target="_blank">3e16a7b</a>
 </td>
 <td>
 jean997
@@ -570,58 +570,7 @@ jean997
 2020-10-21
 </td>
 <td>
-remove link
-</td>
-</tr>
-<tr>
-<td>
-html
-</td>
-<td>
-<a href="https://rawcdn.githack.com/jean997/rr_tools/2ce37afff8c3f21138e527629922ac335d159d5d/docs/file_org.html" target="_blank">2ce37af</a>
-</td>
-<td>
-jean997
-</td>
-<td>
-2020-10-21
-</td>
-<td>
-Build site.
-</td>
-</tr>
-<tr>
-<td>
-Rmd
-</td>
-<td>
-<a href="https://github.com/jean997/rr_tools/blob/f3d4d8769fa9d510c13cc46c249abbd9c21ec153/analysis/file_org.rmd" target="_blank">f3d4d87</a>
-</td>
-<td>
-jean997
-</td>
-<td>
-2020-10-21
-</td>
-<td>
-add content to version_control plus some small edits
-</td>
-</tr>
-<tr>
-<td>
-Rmd
-</td>
-<td>
-<a href="https://github.com/jean997/rr_tools/blob/0809fee8f1877357014951fbafee9f9f384af0e9/analysis/file_org.rmd" target="_blank">0809fee</a>
-</td>
-<td>
-jean997
-</td>
-<td>
-2020-10-21
-</td>
-<td>
-initial structure
+add pipelines, programming, workbooks
 </td>
 </tr>
 </tbody>
@@ -631,22 +580,53 @@ initial structure
 </div>
 </div>
 </div>
-<p>The first step of trying to reproduce an analysis is figuring out where the old analysis is and how you did it. Towards this end it is good to have some overarching organizational structure for your digital content. This is a personal matter that everyone will sort out for themselves but you should give it some thought.</p>
-<p>Here is one structure I have found useful for project directories:</p>
-<pre><code>YYYY_project_name:
-    data_analysis:
-        YYYY-MM-DD_analysis_name1:
-        YYYY-MM-DD_analysis_name2:
-    simulations:
-        YYYY-MM-DD_simulations_name1:
-        YYYY-MM-DD_simulations_name2:
-    R_package_directory:
-    reports:
-    data:</code></pre>
-<ul>
-<li>If you pre-pend directory and file names with the date in <code>YYYY-MM-DD</code> format they will automatically be ordered chronologically which in some cases is exactly what you want. It will also make it easier to find things later. I think I got this tip from a tweet by Jenny Bryan and it has made my life a lot better.</li>
-<li>If some of your project material lives in other places in your filesystem you can create symbolic links in your main project directory. In linux you can create symbolic links using <code>ln -s</code>.</li>
-</ul>
+<div id="dynamic-reports" class="section level2">
+<h2>Dynamic Reports</h2>
+<p>Dynamic reports mix text and code. The key feature of a dynamic report is that when the document is “rendered” all of the code is executed in order from a clean slate. So the rendering of the document is a testament to the reproducibility of its contents.</p>
+<p>Dynamic reports can be used for entire analyses or just for summarizing a larger analysis that had to be run on a compute cluster. They are a convenient way to insert plots and summaries into your text, save you the headache of accurately copying numbers over and mean that you always know the version of the analysis or data that goes with your report.</p>
+<p>I have used two methods to created dynamic reports, both using R. The first is R Markdown (see <a href="https://bookdown.org/yihui/rmarkdown-cookbook/">R Markdown Cookbook</a>) which using markdown syntax which is simple and intuitive. The second is Sweave (intro <a href="https://rpubs.com/YaRrr/SweaveIntro">here</a>) which integrates R code with LaTex syntax giving you access to a wider array of formatting options. In the past several years I have preferred R Markdown because it is faster to write and easier to render into multiple different formats (it is easy to change from html to pdf or vice versa). Both Sweave and R Markdown are powered by <code>knitr</code> so code display options are the same between the two.</p>
+<p>For Python there is <a href="https://jupyter.org/">Juptyr Notebook/Jupityr Lab</a> which I believe has very similar functionality to R Markdown.</p>
+</div>
+<div id="when-to-use-dynamic-reports" class="section level2">
+<h2>When to use dynamic reports</h2>
+<p>You will probably use dynamic reports most often when you are summarizing your analysis for yourself or for someone you want to share it with. It is possible to make dynamic reports look more or less “professional” by controlling what output to show. For your adviser you might let all the code show while for someone who cares less about the code you might hide most of it and only show plots and formatted tables.</p>
+<p>I have used R Markdown and Sweave for “final” reports that I sent to collaborators (I think I also used one for my applied exam in graduate school) but I don’t use them for manuscripts that go to journals because, typically journals either want the source LaTex code to compile all on its own without running anything extra or they want a Word document. One tool that is useful for these cases is the <a href="https://cran.r-project.org/web/packages/xtable/vignettes/xtableGallery.pdf"><code>xtable</code> R package</a> which allows you to print R tables out as LaTex formatted code. You might use <code>xtable</code> inside a dynamic report to make it look nice or you might copy the output and paste it into your (static) LaTex file.</p>
+</div>
+<div id="r-markdown" class="section level2">
+<h2>R Markdown</h2>
+<p>This whole website is actually made out of dynamic reports that are written in R Markdown and then stitched into a website using <code>workflowr</code> (more below). So far we haven’t actually used any R code. Here is a bit of code to give a flavor of what that looks like.</p>
+<p>Here is a plot of the famous iris data set which is one of R’s built in data sets.</p>
+<pre class="r"><code>library(ggplot2)
+
+data(iris)
+head(iris)</code></pre>
+<pre><code>  Sepal.Length Sepal.Width Petal.Length Petal.Width Species
+1          5.1         3.5          1.4         0.2  setosa
+2          4.9         3.0          1.4         0.2  setosa
+3          4.7         3.2          1.3         0.2  setosa
+4          4.6         3.1          1.5         0.2  setosa
+5          5.0         3.6          1.4         0.2  setosa
+6          5.4         3.9          1.7         0.4  setosa</code></pre>
+<pre class="r"><code>ggplot(iris) + geom_point(aes(x=Sepal.Length, y = Petal.Length, color=Species))</code></pre>
+<p><img src="figure/workbooks.rmd/unnamed-chunk-1-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>By default, R Markdown will display the code followed by the output but if we wanted a very clean look, we could suppress showing the code. There are tons of code chunk options that control how code and results are displayed. Check <a href="https://yihui.org/knitr/options/">here</a> for a full list. These will also work with Sweave.</p>
+<p>It is also possible to use R code in line. For example the text</p>
+<p>The Iris data have <code>`r nrow(iris)`</code> observations.</p>
+<p>renders as</p>
+<p>The Iris data have 150 observations.</p>
+<p>To create an R Markdown document using RStudio, just choose the R Markdown option under File -&gt; New File. In RStudio you can then view your document by clicking the “Knit” button. If you want to use a different development environment or for some reason can’t use RStudio, simply write you R Markdown document like any other text file and then render it using <code>rmarkdown::render()</code>.</p>
+<p>A good command to know about is <code>knitr::purl</code> which will extract only the code bits from your R Markdown or Sweave file and write them to their own R script.</p>
+</div>
+<div id="workflowr" class="section level2">
+<h2>workflowr</h2>
+<p><a href="https://jdblischak.github.io/workflowr/"><code>workflowr</code></a>, developed by John Blischak is one of my favorite reproducible research tools! <code>workflowr</code> helps you put many R Markdown files describing analyses together into a research website.</p>
+<p>This is a great way to aggregate all of the analyses you’ve done for a project in one place so it is easy to see and share your work. It is also useful for making a companion site for your paper which may ultimately just be a cleaned up version of the research site you’ve been using throughout the project.</p>
+<p><a href="">Here</a> is an example of paper companion site built using <code>workflowr</code>.</p>
+</div>
+<div id="resources" class="section level2">
+<h2>Resources</h2>
+<p><a href="https://bookdown.org/yihui/rmarkdown-cookbook/">R Markdown Cookbook</a> by Yihui Xie, Christophe Dervieux, and Emily Riederer</p>
+<p><a href="https://jdblischak.github.io/workflowr/"><code>workflowr</code></a> developed by John Blischak</p>
 <br>
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-sessioninfo" data-toggle="collapse" data-target="#workflowr-sessioninfo" style="display: block;">
@@ -675,17 +655,21 @@ attached base packages:
 [1] stats     graphics  grDevices utils     datasets  methods   base     
 
 other attached packages:
-[1] workflowr_1.6.2
+[1] ggplot2_3.3.2   workflowr_1.6.2
 
 loaded via a namespace (and not attached):
- [1] Rcpp_1.0.5       rstudioapi_0.11  whisker_0.4      knitr_1.30      
- [5] magrittr_1.5     R6_2.4.1         rlang_0.4.7      stringr_1.4.0   
- [9] tools_4.0.3      xfun_0.18        git2r_0.27.1     htmltools_0.5.0 
-[13] ellipsis_0.3.1   rprojroot_1.3-2  yaml_2.2.1       digest_0.6.25   
-[17] tibble_3.0.3     lifecycle_0.2.0  crayon_1.3.4     later_1.1.0.1   
-[21] vctrs_0.3.4      promises_1.1.1   fs_1.5.0         glue_1.4.2      
-[25] evaluate_0.14    rmarkdown_2.3    stringi_1.5.3    compiler_4.0.3  
-[29] pillar_1.4.6     backports_1.1.10 httpuv_1.5.4     pkgconfig_2.0.3 </code></pre>
+ [1] Rcpp_1.0.5       pillar_1.4.6     compiler_4.0.3   later_1.1.0.1   
+ [5] git2r_0.27.1     tools_4.0.3      digest_0.6.25    evaluate_0.14   
+ [9] lifecycle_0.2.0  tibble_3.0.3     gtable_0.3.0     pkgconfig_2.0.3 
+[13] rlang_0.4.7      rstudioapi_0.11  yaml_2.2.1       xfun_0.18       
+[17] withr_2.3.0      stringr_1.4.0    dplyr_1.0.2      knitr_1.30      
+[21] generics_0.0.2   fs_1.5.0         vctrs_0.3.4      tidyselect_1.1.0
+[25] rprojroot_1.3-2  grid_4.0.3       glue_1.4.2       R6_2.4.1        
+[29] rmarkdown_2.3    farver_2.0.3     purrr_0.3.4      magrittr_1.5    
+[33] whisker_0.4      backports_1.1.10 scales_1.1.1     promises_1.1.1  
+[37] ellipsis_0.3.1   htmltools_0.5.0  colorspace_1.4-1 httpuv_1.5.4    
+[41] labeling_0.3     stringi_1.5.3    munsell_0.5.0    crayon_1.3.4    </code></pre>
+</div>
 </div>
 
 

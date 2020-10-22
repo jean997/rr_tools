@@ -13,7 +13,7 @@
 
 <meta name="date" content="2020-10-21" />
 
-<title>File and Directory Organization</title>
+<title>Programing Tips for Reproducibility</title>
 
 <script src="site_libs/header-attrs-2.3/header-attrs.js"></script>
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
@@ -378,7 +378,7 @@ div.tocify {
 
 
 
-<h1 class="title toc-ignore">File and Directory Organization</h1>
+<h1 class="title toc-ignore">Programing Tips for Reproducibility</h1>
 <h4 class="author">Jean Morrison</h4>
 <h4 class="date">2020-10-21</h4>
 
@@ -532,7 +532,7 @@ Note that any generated files, e.g. HTML, png, CSS, etc., are not included in t
 <div id="versions" class="tab-pane fade">
 
 <p>
-These are the previous versions of the repository in which changes were made to the R Markdown (<code>analysis/file_org.rmd</code>) and HTML (<code>docs/file_org.html</code>) files. If you’ve configured a remote Git repository (see <code>?wflow_git_remote</code>), click on the hyperlinks in the table below to view the files as they were in that past version.
+These are the previous versions of the repository in which changes were made to the R Markdown (<code>analysis/programming.rmd</code>) and HTML (<code>docs/programming.html</code>) files. If you’ve configured a remote Git repository (see <code>?wflow_git_remote</code>), click on the hyperlinks in the table below to view the files as they were in that past version.
 </p>
 <div class="table-responsive">
 <table class="table table-condensed table-hover">
@@ -561,7 +561,7 @@ Message
 Rmd
 </td>
 <td>
-<a href="https://github.com/jean997/rr_tools/blob/94f0bf7f13dfe34b1ba8eac90a1df03f499d0c96/analysis/file_org.rmd" target="_blank">94f0bf7</a>
+<a href="https://github.com/jean997/rr_tools/blob/3e16a7b0a8c50bfbe1aaf94961fa20474e8b7de0/analysis/programming.rmd" target="_blank">3e16a7b</a>
 </td>
 <td>
 jean997
@@ -570,58 +570,7 @@ jean997
 2020-10-21
 </td>
 <td>
-remove link
-</td>
-</tr>
-<tr>
-<td>
-html
-</td>
-<td>
-<a href="https://rawcdn.githack.com/jean997/rr_tools/2ce37afff8c3f21138e527629922ac335d159d5d/docs/file_org.html" target="_blank">2ce37af</a>
-</td>
-<td>
-jean997
-</td>
-<td>
-2020-10-21
-</td>
-<td>
-Build site.
-</td>
-</tr>
-<tr>
-<td>
-Rmd
-</td>
-<td>
-<a href="https://github.com/jean997/rr_tools/blob/f3d4d8769fa9d510c13cc46c249abbd9c21ec153/analysis/file_org.rmd" target="_blank">f3d4d87</a>
-</td>
-<td>
-jean997
-</td>
-<td>
-2020-10-21
-</td>
-<td>
-add content to version_control plus some small edits
-</td>
-</tr>
-<tr>
-<td>
-Rmd
-</td>
-<td>
-<a href="https://github.com/jean997/rr_tools/blob/0809fee8f1877357014951fbafee9f9f384af0e9/analysis/file_org.rmd" target="_blank">0809fee</a>
-</td>
-<td>
-jean997
-</td>
-<td>
-2020-10-21
-</td>
-<td>
-initial structure
+add pipelines, programming, workbooks
 </td>
 </tr>
 </tbody>
@@ -631,21 +580,28 @@ initial structure
 </div>
 </div>
 </div>
-<p>The first step of trying to reproduce an analysis is figuring out where the old analysis is and how you did it. Towards this end it is good to have some overarching organizational structure for your digital content. This is a personal matter that everyone will sort out for themselves but you should give it some thought.</p>
-<p>Here is one structure I have found useful for project directories:</p>
-<pre><code>YYYY_project_name:
-    data_analysis:
-        YYYY-MM-DD_analysis_name1:
-        YYYY-MM-DD_analysis_name2:
-    simulations:
-        YYYY-MM-DD_simulations_name1:
-        YYYY-MM-DD_simulations_name2:
-    R_package_directory:
-    reports:
-    data:</code></pre>
+<div id="programing-tips-for-reproducibility" class="section level2">
+<h2>Programing Tips for Reproducibility</h2>
+<p>Because I am an R programmer a lot of these are given with sort of an R cadence but apply more or less as well for Python.</p>
 <ul>
-<li>If you pre-pend directory and file names with the date in <code>YYYY-MM-DD</code> format they will automatically be ordered chronologically which in some cases is exactly what you want. It will also make it easier to find things later. I think I got this tip from a tweet by Jenny Bryan and it has made my life a lot better.</li>
-<li>If some of your project material lives in other places in your filesystem you can create symbolic links in your main project directory. In linux you can create symbolic links using <code>ln -s</code>.</li>
+<li><p>If you need to do the same task more than once write a function.</p></li>
+<li><p>If you have written more than one function, make a package. <a href="https://r-pkgs.org/">R Pakcages</a> by Hadley Wickham is great and will show you how to do it.</p></li>
+<li><p>Document your code! Document your package using <code>roxygen2</code> (see <a href="https://r-pkgs.org/man.html">Chapter 10</a>). Later write some vignettes so you can remember how to use it and so others can easily figure it out.</p></li>
+<li><p>Consider adding unit tests to your code using <code>test_that</code>.</p></li>
+<li><p>If you want, you can make a website for your package with <a href="https://pkgdown.r-lib.org/articles/pkgdown.html"><code>pkgedown</code></a>. <code>pkgdown</code> will take all the documentation for your package and turn it into a website.</p></li>
+<li><p>RStudio makes a lot of the other reproducibility tools easier including Git/GitHub and RMarkdown.</p></li>
+</ul>
+</div>
+<div id="things-to-avoid-in-r-scripts" class="section level2">
+<h2>Things to avoid in R scripts</h2>
+<p>These tips are specifically for code that you will save a run again either at the command line using <code>Rscript</code> or as part of a package. If you are using R interactively these don’t apply (except the last one).</p>
+<ul>
+<li><p>Change the working directory (<code>setwd</code>).</p></li>
+<li><p>If you are sourcing in other R scripts consider making a package instead or turning your analysis into a <a href="pipelines.html">pipeline</a>.</p></li>
+<li><p>Be careful if you are having R run commands at the command line (<code>system</code>). Again, you might think about making a pipeline.</p></li>
+<li><p>Remove variables from the workspace with <code>rm</code>.</p></li>
+<li><p>Avoid hard coding input and output files. It’s better to pass these in as options. This can help prevent you from overwriting results without realizing it and save you from errors if you move something.</p></li>
+<li><p>If working interactively avoid saving your workspace (when exiting you will be asked if you want to save or in RStudio you can set a default). If a workspace is saved (<code>.RData</code> exists), it will be loaded the next time you start R in that directory. If you don’t notice, now you have variables in your workspace from the previous analysis!</p></li>
 </ul>
 <br>
 <p>
@@ -686,6 +642,7 @@ loaded via a namespace (and not attached):
 [21] vctrs_0.3.4      promises_1.1.1   fs_1.5.0         glue_1.4.2      
 [25] evaluate_0.14    rmarkdown_2.3    stringi_1.5.3    compiler_4.0.3  
 [29] pillar_1.4.6     backports_1.1.10 httpuv_1.5.4     pkgconfig_2.0.3 </code></pre>
+</div>
 </div>
 
 

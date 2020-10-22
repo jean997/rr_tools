@@ -356,16 +356,16 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomjean997rrtoolstree7e6b37c7401faa0e86078051c5d87afa4aa387actargetblank7e6b37ca"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/jean997/rr_tools/tree/7e6b37c7401faa0e86078051c5d87afa4aa387ac" target="_blank">7e6b37c</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomjean997rrtoolstree3e16a7b0a8c50bfbe1aaf94961fa20474e8b7de0targetblank3e16a7ba"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/jean997/rr_tools/tree/3e16a7b0a8c50bfbe1aaf94961fa20474e8b7de0" target="_blank">3e16a7b</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcomjean997rrtoolstree7e6b37c7401faa0e86078051c5d87afa4aa387actargetblank7e6b37ca" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomjean997rrtoolstree3e16a7b0a8c50bfbe1aaf94961fa20474e8b7de0targetblank3e16a7ba" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version <a href="https://github.com/jean997/rr_tools/tree/7e6b37c7401faa0e86078051c5d87afa4aa387ac" target="_blank">7e6b37c</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version <a href="https://github.com/jean997/rr_tools/tree/3e16a7b0a8c50bfbe1aaf94961fa20474e8b7de0" target="_blank">3e16a7b</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
 <p>
 Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
@@ -376,9 +376,8 @@ Ignored files:
 
 Untracked files:
     Untracked:  README.html
-
-Unstaged changes:
-    Modified:   analysis/_site.yml
+    Untracked:  analysis/exercise.rmd
+    Untracked:  figure/
 
 </code></pre>
 <p>
@@ -417,6 +416,40 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/jean997/rr_tools/blob/de9e2025ec41916c6b9183c4180a5a068f608838/analysis/index.Rmd" target="_blank">de9e202</a>
+</td>
+<td>
+jean997
+</td>
+<td>
+2020-10-21
+</td>
+<td>
+added more words
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/jean997/rr_tools/0bb9529b56d542a3817132d10ea001c9e22d3135/docs/index.html" target="_blank">0bb9529</a>
+</td>
+<td>
+jean997
+</td>
+<td>
+2020-10-21
+</td>
+<td>
+Build site.
+</td>
+</tr>
 <tr>
 <td>
 Rmd
@@ -532,13 +565,18 @@ Start workflowr project.
 <p>Here are some caveats before we get going:</p>
 <ul>
 <li>This is not an exhaustive list. If you have something that you use and like I would love to know about it and add it in. Feel free to open a <a href="">GitHub Issue</a> and let me know about it!</li>
-<li>This website doesn’t attempt to give a thorough or exhaustive tutorial for any of the tools I cover. Instead think of it as an aggregation of useful things that have already been well documented others. I’ll do my best to supply all the links you need to get going with each thing. Please let me know if you find a broken link.</li>
-<li>I am mostly an R user so some of these tools are sort of R focused. Where I know about Python options I give those and many tools and practices are language agnostic.</li>
+<li>This website doesn’t attempt to give thorough tutorials. It is more of an aggregation of useful things that have already been well documented others. I’ll do my best to supply all the links you need to get going with each thing. Please let me know if you find a broken link of if you’ve found something useful you want to add.</li>
+<li>I am mostly an R user so some of these tools are fairly R focused but in a lot of cases similar principles apply across languages.</li>
 </ul>
-<p>This website was built using <code>workflowr</code> which I cover in the section on “Workbooks and Reports” below!</p>
+<p>This website was built using <code>workflowr</code> which is covered in the section on “Workbooks and Reports” below!</p>
 </div>
 <div id="what-is-reproducibility" class="section level2">
 <h2>What is Reproducibility?</h2>
+</div>
+<div id="effort-pain-and-learning-curves" class="section level2">
+<h2>Effort, Pain, and Learning Curves</h2>
+<p>Each step that you take towards reproducibility will require some modification of your work habits. It is natural to work initially in ways that turn out later to be messy and hard to recreate. This is why it is so common for people to lose files or send the wrong version of something. Learning new tools, installing software, and creating new habits all take up time and can be awkward and uncomfortable. The payoff is in fewer headaches down the road and confidence in the results you report or publish on.</p>
+<p>Developing your work habits and your programming skills is an ongoing project. I organized the content below into categories that are about the order that I have adopted different habits but fee free to hop around.</p>
 </div>
 <div id="content" class="section level2">
 <h2>Content</h2>
@@ -566,7 +604,9 @@ Start workflowr project.
 <p><a href="http://adv-r.had.co.nz/">Advanced R Book</a> by Hadley Wickham</p>
 <p><a href="https://r-pkgs.org/">R Packages Book</a> by Hadley Wickham</p>
 <p><a href="https://csgillespie.github.io/efficientR">Efficient R</a> by Collin Gillespe and Robin Lovelace</p>
-<p><a href="https://happygitwithr.com/">Happy Git with R</a></p>
+<p><a href="https://happygitwithr.com/">Happy Git with R</a> by Jenny Bryan</p>
+<p><a href="https://bookdown.org/yihui/rmarkdown-cookbook/">R Markdown Cookbook</a> by Yihui Xie, Christophe Dervieux, and Emily Riederer</p>
+<p><a href="https://jdblischak.github.io/workflowr/"><code>workflowr</code></a> developed by John Blischak</p>
 </div>
 
 

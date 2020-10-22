@@ -13,7 +13,7 @@
 
 <meta name="date" content="2020-10-21" />
 
-<title>File and Directory Organization</title>
+<title>Pipelines</title>
 
 <script src="site_libs/header-attrs-2.3/header-attrs.js"></script>
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
@@ -378,7 +378,7 @@ div.tocify {
 
 
 
-<h1 class="title toc-ignore">File and Directory Organization</h1>
+<h1 class="title toc-ignore">Pipelines</h1>
 <h4 class="author">Jean Morrison</h4>
 <h4 class="date">2020-10-21</h4>
 
@@ -532,7 +532,7 @@ Note that any generated files, e.g. HTML, png, CSS, etc., are not included in t
 <div id="versions" class="tab-pane fade">
 
 <p>
-These are the previous versions of the repository in which changes were made to the R Markdown (<code>analysis/file_org.rmd</code>) and HTML (<code>docs/file_org.html</code>) files. If you’ve configured a remote Git repository (see <code>?wflow_git_remote</code>), click on the hyperlinks in the table below to view the files as they were in that past version.
+These are the previous versions of the repository in which changes were made to the R Markdown (<code>analysis/pipelines.rmd</code>) and HTML (<code>docs/pipelines.html</code>) files. If you’ve configured a remote Git repository (see <code>?wflow_git_remote</code>), click on the hyperlinks in the table below to view the files as they were in that past version.
 </p>
 <div class="table-responsive">
 <table class="table table-condensed table-hover">
@@ -561,7 +561,7 @@ Message
 Rmd
 </td>
 <td>
-<a href="https://github.com/jean997/rr_tools/blob/94f0bf7f13dfe34b1ba8eac90a1df03f499d0c96/analysis/file_org.rmd" target="_blank">94f0bf7</a>
+<a href="https://github.com/jean997/rr_tools/blob/3e16a7b0a8c50bfbe1aaf94961fa20474e8b7de0/analysis/pipelines.rmd" target="_blank">3e16a7b</a>
 </td>
 <td>
 jean997
@@ -570,58 +570,7 @@ jean997
 2020-10-21
 </td>
 <td>
-remove link
-</td>
-</tr>
-<tr>
-<td>
-html
-</td>
-<td>
-<a href="https://rawcdn.githack.com/jean997/rr_tools/2ce37afff8c3f21138e527629922ac335d159d5d/docs/file_org.html" target="_blank">2ce37af</a>
-</td>
-<td>
-jean997
-</td>
-<td>
-2020-10-21
-</td>
-<td>
-Build site.
-</td>
-</tr>
-<tr>
-<td>
-Rmd
-</td>
-<td>
-<a href="https://github.com/jean997/rr_tools/blob/f3d4d8769fa9d510c13cc46c249abbd9c21ec153/analysis/file_org.rmd" target="_blank">f3d4d87</a>
-</td>
-<td>
-jean997
-</td>
-<td>
-2020-10-21
-</td>
-<td>
-add content to version_control plus some small edits
-</td>
-</tr>
-<tr>
-<td>
-Rmd
-</td>
-<td>
-<a href="https://github.com/jean997/rr_tools/blob/0809fee8f1877357014951fbafee9f9f384af0e9/analysis/file_org.rmd" target="_blank">0809fee</a>
-</td>
-<td>
-jean997
-</td>
-<td>
-2020-10-21
-</td>
-<td>
-initial structure
+add pipelines, programming, workbooks
 </td>
 </tr>
 </tbody>
@@ -631,22 +580,38 @@ initial structure
 </div>
 </div>
 </div>
-<p>The first step of trying to reproduce an analysis is figuring out where the old analysis is and how you did it. Towards this end it is good to have some overarching organizational structure for your digital content. This is a personal matter that everyone will sort out for themselves but you should give it some thought.</p>
-<p>Here is one structure I have found useful for project directories:</p>
-<pre><code>YYYY_project_name:
-    data_analysis:
-        YYYY-MM-DD_analysis_name1:
-        YYYY-MM-DD_analysis_name2:
-    simulations:
-        YYYY-MM-DD_simulations_name1:
-        YYYY-MM-DD_simulations_name2:
-    R_package_directory:
-    reports:
-    data:</code></pre>
+<div id="introduction" class="section level2">
+<h2>Introduction</h2>
+<p>A pipeline is just a series of analysis steps that need to be completed to get to a final result. The first time you build a pipeline you might just have a directory with some code and a Readme in it that says</p>
+<pre><code>Step 1: Run script a.sh to generate file A
+Step 2: Run script b.R to generate files B1 to B100
+Step 3: Run script final.py with A and B1 to B100 to generate final_output.tsv</code></pre>
+<p>This is an ok way to do it! You have documentation that tells you what you did and all the code exists in one directory. Chances are, if you had to, you could recreate <code>final_output.tsv</code>, especially if you saved some info about what package versions you used.</p>
+</div>
+<div id="what-can-go-wrong-why-do-it-differently" class="section level2">
+<h2>What can go wrong why do it differently?</h2>
 <ul>
-<li>If you pre-pend directory and file names with the date in <code>YYYY-MM-DD</code> format they will automatically be ordered chronologically which in some cases is exactly what you want. It will also make it easier to find things later. I think I got this tip from a tweet by Jenny Bryan and it has made my life a lot better.</li>
-<li>If some of your project material lives in other places in your filesystem you can create symbolic links in your main project directory. In linux you can create symbolic links using <code>ln -s</code>.</li>
+<li><p>Your colleague would like to use your pipeline but finds it complicated. Also they would like to use slightly different parameters in one of the scripts. You could send them an email that says “Here is the code, you just need to change lines 7 and 25 of a.sh and line 15 of b.R.” but there is a lot of room for error there.</p></li>
+<li><p>You accidentally modify an file A and don’t notice before you regenerate your final result.</p></li>
+<li><p>You edit one of your scripts after generating the result and forget to rerun the pipeline.</p></li>
 </ul>
+<p>There are pipeline tools that can help you avoid at least the first two of these problems and also do a lot of the overhead of managing job submission to a cluster. I have only used Snakemake which I will describe here but there are other options.</p>
+<p>I will also mention a specialized tool, DSC which is especially for running simulations and makes it easy to track simulated data sets and add replicates or new analysis methods. DSC is also one of my favorite things. I highly recommend giving it a try.</p>
+</div>
+<div id="snakemake" class="section level2">
+<h2>Snakemake</h2>
+<p><a href="https://snakemake.readthedocs.io/en/stable/">Snakemake</a> is a pipeline building tool that is based on the syntax ideas of a make file. If you have never written a make file, don’t worry, you don’t need to be able to do that to do this. Learning to use Snakemake is definitely a bit of a time investment but it is worth it. For me, here are the major up sides:</p>
+<ul>
+<li><p>I don’t have to manage cluster submission. I only need to know how to run each step and the inputs and outputs of each step. Snakemake will figure out the order, what can be run simultaneously and will submit jobs to a compute cluster with different amounts of memory or time constraints.</p></li>
+<li><p>I can restart a paused analysis from the middle without worrying about which files are ok. Snakemake will check time stamps and make sure that none of the upstream files have changed before running later jobs.</p></li>
+<li><p>It makes an analysis easy to customize. You can provide options in a config file like output directory or input data or parameters. So you can use the same code to run a lot of different analyses by just making a new config file.</p></li>
+</ul>
+<p><a href="https://github.com/jean997/cause/tree/master/pipeline_code">Here</a> is an example of a pipeline that I wrote for performing Mendelian randomization analysis for user specified pairs of traits to give a sense of what it looks like. The file <code>Snakefile</code> is the pipeline while <code>config.yaml</code> and <code>cluster.yaml</code> specify analysis parameters and how much memory/time/cores each step needs respectively.</p>
+<p>To start to get an idea of how it works <a href="https://snakemake.readthedocs.io/en/stable/tutorial/short.html">start here</a> and then look at the full tutorial.</p>
+</div>
+<div id="dsc" class="section level2">
+<h2>DSC</h2>
+<p><a href="https://stephenslab.github.io/dsc-wiki/overview">DSC</a> is a tool created by Gao Wang and Matthew Stephens. It stands for “dynamic statistical comparisons” and it is a tool for running simulations. Like Snakemake, DSC takes a bit of effort to learn. Once that effort is put in though the payoff is immediate. You never have to write another loop function to run simulations for you. DSC also takes care of setting seeds for each simulation so every analysis is reproducible. Re-running the same DSC job should give exactly the same results.</p>
 <br>
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-sessioninfo" data-toggle="collapse" data-target="#workflowr-sessioninfo" style="display: block;">
@@ -686,6 +651,7 @@ loaded via a namespace (and not attached):
 [21] vctrs_0.3.4      promises_1.1.1   fs_1.5.0         glue_1.4.2      
 [25] evaluate_0.14    rmarkdown_2.3    stringi_1.5.3    compiler_4.0.3  
 [29] pillar_1.4.6     backports_1.1.10 httpuv_1.5.4     pkgconfig_2.0.3 </code></pre>
+</div>
 </div>
 
 
