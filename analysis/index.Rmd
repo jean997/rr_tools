@@ -15,12 +15,19 @@ The aim of this website is to give an overview of several tools for reproducible
 Here are some caveats before we get going: 
 
 + This is not an exhaustive list. If you have something that you use and like I would love to know about it and add it in. Feel free to open a [GitHub Issue]() and let me know about it!
-+ This website doesn't attempt to give a thorough or exhaustive tutorial for any of the tools I cover. Instead think of it as an aggregation of useful things that have already been well documented others. I'll do my best to supply all the links you need to get going with each thing. Please let me know if you find a broken link.
-+ I am mostly an R user so some of these tools are sort of R focused. Where I know about Python options I give those and many tools and practices are language agnostic.
++ This website doesn't attempt to give thorough tutorials. It is more of an aggregation of useful things that have already been well documented others. I'll do my best to supply all the links you need to get going with each thing. Please let me know if you find a broken link of if you've found something useful you want to add.
++ I am mostly an R user so some of these tools are fairly R focused but in a lot of cases similar principles apply across languages. 
 
-This website was built using `workflowr` which I cover in the section on "Workbooks and Reports" below!
+This website was built using `workflowr` which is covered in the section on "Workbooks and Reports" below!
 
 ## What is Reproducibility?
+
+## Effort, Pain, and Learning Curves
+
+Each step that you take towards reproducibility will require some modification of your work habits. It is natural to work initially in ways that turn out later to be messy and hard to recreate. This is why it is so common for people to lose files or send the wrong version of something. Learning new tools, installing software, and creating new habits all take up time and can be awkward and uncomfortable. The payoff is in fewer headaches down the road and confidence in the results you report or publish on. 
+
+Developing your work habits and your programming skills is an ongoing project. I organized the content below into categories that are about the order that I have adopted different habits but fee free to hop around. 
+
 
 
 ## Content
@@ -45,4 +52,8 @@ This website was built using `workflowr` which I cover in the section on "Workbo
 
 [Efficient R](https://csgillespie.github.io/efficientR) by Collin Gillespe and Robin Lovelace
 
-[Happy Git with R](https://happygitwithr.com/)
+[Happy Git with R](https://happygitwithr.com/) by Jenny Bryan
+
+[R Markdown Cookbook](https://bookdown.org/yihui/rmarkdown-cookbook/) by Yihui Xie, Christophe Dervieux, and Emily Riederer
+
+[`workflowr`](https://jdblischak.github.io/workflowr/) developed by John Blischak
