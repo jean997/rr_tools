@@ -36,7 +36,7 @@ Scientific integrity requires us to pay attention to ensuring all three of these
 
 ## What Does Reproducible Statistical Research Look Like?
 
-Some results may be nominally reproducible in that authors promise "code and data on reasonable request" but how often can these results actually be reproduced? According to [Richard McElreath et al]() not as often as we would like! What can you do to make sure your results are easily reproducible and you are not scrambling if someone asks you for the results years later?
+Some results may be nominally reproducible in that authors promise "code and data on reasonable request" but how often can these results actually be reproduced? According to [Minocher et al](https://psyarxiv.com/4nzc7/) not as often as we would like! What can you do to make sure your results are easily reproducible and you are not scrambling if someone asks you for the results years later?
 
 + Code is publicly available and well documented.
 + Data is publicly available if possible. 
@@ -70,6 +70,8 @@ Developing your work habits and your programming skills is an ongoing project. I
 
 
 ## Resources
+
+[A Good Talk](https://www.youtube.com/watch?v=zwRdO9_GGhY&t=2s) by Richard McElreath
 
 [Advanced R Book](http://adv-r.had.co.nz/) by Hadley Wickham
 
