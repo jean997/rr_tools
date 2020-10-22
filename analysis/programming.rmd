@@ -7,7 +7,21 @@ editor_options:
   chunk_output_type: console
 ---
 
-## Programing Tips for Reproducibility
+## Data Processing
+
++ Avoid modifying data "in place".
+
++ Try not to open your data in Excel which can introduce errors like converting cells to dates. Analysis and data processing in Excel is very error prone and hard to track. 
+
++ Consider saving the MD5 checksum for data you want to remain unaltered. The MD5 sum for a file is a character string that results from running the contents of the file through a hashing algorithm. If the contents change (even a little) the MD5 sum will change which gives you a quick way to know that something 
+has happened to your data. In linux you can generate the MD5 sum with `md5sum`. If you want to be able to check on the data later, save the sum to a new file and then use the `md5sum` with `-c` to check. 
+
+```
+md5sum myfile.txt > myfile.md5 ## Save the MD5 sum
+md5sum -c myfile.md5 ## Check if the MD5 sum has changed
+```
+
+## Programing Tips 
 
 
 Because I am an R programmer a lot of these are given with sort of an R cadence but apply more or less as well for Python.
@@ -18,7 +32,9 @@ Because I am an R programmer a lot of these are given with sort of an R cadence 
 
 + Document your code! Document your package using `roxygen2` (see [Chapter 10](https://r-pkgs.org/man.html)). Later write some vignettes so you can remember how to use it and so others can easily figure it out. 
 
-+ Consider adding unit tests to your code using `test_that`. 
++ Include parameter checks in your functions. If you know properties about the inputs like that they should be positive or the dimensions of two inputs should match, check that and have your function error if something unexpected is provided. In R you can use the functions `warning()`, `stop()` and `stopifnot()` to give your user feedback. 
+
++ Consider adding unit tests to your code using `testthat` for R. 
 
 + If you want, you can make a website for your package with [`pkgedown`](https://pkgdown.r-lib.org/articles/pkgdown.html). `pkgdown` will take all the documentation for your package and turn it into a website. 
 
@@ -28,15 +44,15 @@ Because I am an R programmer a lot of these are given with sort of an R cadence 
 
 These tips are specifically for code that you will save a run again either at the command line using `Rscript` or as part of a package. If you are using R interactively these don't apply (except the last one).
 
-+ Change the working directory (`setwd`).
++ Avoid changing the working directory (`setwd`).
 
 + If you are sourcing in other R scripts, consider making a package instead or turning your analysis into a [pipeline](pipelines.html).
 
 + Be careful if you are having R run commands at the command line via `system`. Again, you might think about using a pipeline tool that will keep track of external steps for you. 
 
-+ Removing variables from the workspace with `rm`.
++ Avoid removing variables from the workspace with `rm`. This can make it hard to debug later and set you up for future errors. 
 
-+ Avoid hard coding input and output files. It's better to pass these in as options.  This can help prevent you from overwriting results without realizing it and save you from errors if you move something. 
++ Avoid hard coding input and output files/parameters. It's better to pass these in as options.  This can help prevent you from overwriting results without realizing it and save you from errors if you move something. 
 
-+ If working interactively avoid saving your workspace (when exiting you will be asked if you want to save or in RStudio you can set a default). If a workspace is saved (`.RData` exists), it will be loaded the next time you start R in that directory. If you don't notice, now you have variables in your workspace from the previous analysis!
++ If working interactively, avoid saving your workspace (when exiting you will be asked if you want to save or in RStudio you can set a default). If a workspace is saved (`.RData` exists), it will be loaded the next time you start R in that directory. If you don't notice, now you have variables in your workspace from the previous analysis!
 

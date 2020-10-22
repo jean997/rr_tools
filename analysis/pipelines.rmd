@@ -12,7 +12,7 @@ editor_options:
 A pipeline is just a series of analysis steps that need to be completed to get to a final result. The first time you build a pipeline you might just have a directory with some code and a Readme in it that says 
 
 ```
-Step 1: Run script a.sh to generate file A
+Step 1: Run script a.sh using data file data.tsv to generate file A
 Step 2: Run script b.R to generate files B1 to B100
 Step 3: Run script final.py with A and B1 to B100 to generate final_output.tsv
 ```
@@ -36,15 +36,40 @@ I will also mention a specialized tool, DSC which is especially for running simu
 
 [Snakemake](https://snakemake.readthedocs.io/en/stable/) is a pipeline building tool that is based on the syntax ideas of a make file. If you have never written a make file, don't worry, you don't need to be able to do that to do this. Learning to use Snakemake is definitely a bit of a time investment but it is worth it. For me, here are the major up sides:
 
-+ I don't have to manage cluster submission. I only need to know how to run each step and the inputs and outputs of each step. Snakemake will figure out the order, what can be run simultaneously and will submit jobs to a compute cluster with different amounts of memory or time constraints. 
++ I don't have to manage cluster submission. I only need to know how to run each step and the inputs and outputs of each step. Snakemake will figure out the order, which jobs can be run simultaneously, and will submit jobs to a compute cluster with different amounts of memory or time constraints. 
 
 + I can restart a paused analysis from the middle without worrying about which files are ok. Snakemake will check time stamps and make sure that none of the upstream files have changed before running later jobs. 
 
-+ It makes an analysis easy to customize. You can provide options in a config file like output directory or input data or parameters. So you can use the same code to run a lot of different analyses by just making a new config file. 
++ It makes an analysis easy to customize without modifying the code itself. You can provide options in a config file like output directory or input data or parameters. So you can use the same code to run a lot of different analyses by just making a new config file. 
 
-[Here](https://github.com/jean997/cause/tree/master/pipeline_code) is an example of a pipeline that I wrote for performing Mendelian randomization analysis for user specified pairs of traits to give a sense of what it looks like. The file `Snakefile` is the pipeline while `config.yaml` and `cluster.yaml` specify analysis parameters and how much memory/time/cores each step needs respectively. 
+Conceptually, a Snakemake file is just a list of "rules". Each rule has input files and output files. If I wanted to turn my example above into a Snakemake pipeline, I would end up writing a file that looks something like 
+
+```
+rule all: 
+    input: "final_output.tsv"
+    
+rule make_A:
+    input: in = "data.tsv"
+    output: out = "A"
+    shell: "./a.sh {input.in} {output.out}"
+    
+rule make_B:
+    input: in = "A"
+    out: expand("B{n}", n = range(1, 101) )
+    shell: "Rscript b.R {input.in} {output}"
+    
+rule make_final:
+     input: inA = "A", inB = expand("B{n}", n=range(1, 101))
+     output: out = "final_output.tsv"
+     shell: "python final.py {input.inA} {input.inB} {output.out}"
+```
+
+Here "rule all" is a special rule that tells Snakemake its ultimate goal. This is the only rule that doesn't get an output file or instructions about what to do. The other rules each have an input, an output, and then a command to run to generate the output. Reading this, it reads a lot like the Readme up above with a little bit of special syntax but now we have Snakemake taking care of actually running the analysis.
+
 
 To start to get an idea of how it works [start here](https://snakemake.readthedocs.io/en/stable/tutorial/short.html) and then look at the full tutorial. 
+
+[Here](https://github.com/jean997/cause/tree/master/pipeline_code) is an example of a pipeline that I wrote that takes input config and cluster files. The file `Snakefile` is the pipeline while `config.yaml` and `cluster.yaml` specify analysis parameters and how much memory/time/cores each step needs respectively. 
 
 ## DSC
 

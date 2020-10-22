@@ -36,6 +36,8 @@ Developing your work habits and your programming skills is an ongoing project. I
 1. [Version Control (Git)](version_control.html)
     + Git
 1. [Code and Programming Practices](programming.html)
+    + Data processing practices
+    + Programming tips
 1. [Workbooks and Reports](workbooks.html)
     + R Markdown and Sweave with `knitr`
     + `workflowr` for project organization
