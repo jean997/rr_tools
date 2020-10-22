@@ -30,12 +30,13 @@ These tips are specifically for code that you will save a run again either at th
 
 + Change the working directory (`setwd`).
 
-+ If you are sourcing in other R scripts consider making a package instead or turning your analysis into a [pipeline](pipelines.html).
++ If you are sourcing in other R scripts, consider making a package instead or turning your analysis into a [pipeline](pipelines.html).
 
-+ Be careful if you are having R run commands at the command line (`system`). Again, you might think about making a pipeline. 
++ Be careful if you are having R run commands at the command line via `system`. Again, you might think about using a pipeline tool that will keep track of external steps for you. 
 
-+ Remove variables from the workspace with `rm`.
++ Removing variables from the workspace with `rm`.
 
 + Avoid hard coding input and output files. It's better to pass these in as options.  This can help prevent you from overwriting results without realizing it and save you from errors if you move something. 
 
 + If working interactively avoid saving your workspace (when exiting you will be asked if you want to save or in RStudio you can set a default). If a workspace is saved (`.RData` exists), it will be loaded the next time you start R in that directory. If you don't notice, now you have variables in your workspace from the previous analysis!
+

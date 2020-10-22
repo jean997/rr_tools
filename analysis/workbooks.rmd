@@ -17,7 +17,7 @@ I have used two methods to created dynamic reports, both using R. The first is R
 
 For Python there is [Juptyr Notebook/Jupityr Lab](https://jupyter.org/) which I believe has very similar functionality to R Markdown. 
 
-## When to use dynamic reports
+## When to Use Dynamic Reports
 
 You will probably use dynamic reports most often when you are summarizing your analysis for yourself or for someone you want to share it with. It is possible to make dynamic reports look more or less "professional" by controlling what output to show. For your adviser you might let all the code show while for someone who cares less about the code you might hide most of it and only show plots and formatted tables. 
 
@@ -69,9 +69,12 @@ This is a great way to aggregate all of the analyses you've done for a project i
 
 
 
+## Envirionment
 
-## Resources
+One piece of computing research that can be very challenging to track is your coding environment. You might be able to know exactly what version of your own code you used to run something but how do you know what versions of other software you used? There are a couple options that start to address this issue: 
 
-[R Markdown Cookbook](https://bookdown.org/yihui/rmarkdown-cookbook/) by Yihui Xie, Christophe Dervieux, and Emily Riederer
+1. `sessionInfo()`. The easiest thing you can do is just make a note of what R packages you used at the time of your analysis. If you record your analysis in R Markdown, add a `sessionInfo()` command to the end to make a note of all the versions of loaded packages. This doesn't help you with software outside of R but it can go a long way for chasing down discrepancies. If you use `workflowr`, this is added automatically. 
 
-[`workflowr`](https://jdblischak.github.io/workflowr/) developed by John Blischak
+1. [Conda](https://docs.conda.io/projects/conda/en/latest/) is a package management system (I like Miniconda). For example, suppose I want to make sure that whoever runs my code has a specific version of R and a specific version of python. I can build a conda environment, load that environment and I will be using those specific versions. Then if I need a different version for a different project I can just switch environments. 
+
+1. [Docker](https://www.docker.com/resources/what-container) lets you package your entire software environment into a container. I have never used Docker so I will leave it at that! 

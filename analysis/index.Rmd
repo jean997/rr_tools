@@ -14,7 +14,7 @@ The aim of this website is to give an overview of several tools for reproducible
 
 Here are some caveats before we get going: 
 
-+ This is not an exhaustive list. If you have something that you use and like I would love to know about it and add it in. Feel free to open a [GitHub Issue]() and let me know about it!
++ This is not an exhaustive list. If you have something that you use and like I would love to know about it and add it in. Feel free to open a [GitHub Issue](https://github.com/jean997/rr_tools/issues) and let me know about it!
 + This website doesn't attempt to give thorough tutorials. It is more of an aggregation of useful things that have already been well documented others. I'll do my best to supply all the links you need to get going with each thing. Please let me know if you find a broken link of if you've found something useful you want to add.
 + I am mostly an R user so some of these tools are fairly R focused but in a lot of cases similar principles apply across languages. 
 
@@ -39,6 +39,7 @@ Developing your work habits and your programming skills is an ongoing project. I
 1. [Workbooks and Reports](workbooks.html)
     + R Markdown and Sweave with `knitr`
     + `workflowr` for project organization
+    + Software environments
 1. [Pipelines](pipelines.html)
     + Snakemake
     + DSC for simulations
@@ -56,4 +57,10 @@ Developing your work habits and your programming skills is an ongoing project. I
 
 [R Markdown Cookbook](https://bookdown.org/yihui/rmarkdown-cookbook/) by Yihui Xie, Christophe Dervieux, and Emily Riederer
 
+[Conda](https://docs.conda.io/projects/conda/en/latest/)
+
 [`workflowr`](https://jdblischak.github.io/workflowr/) developed by John Blischak
+
+[Snakemake](https://snakemake.readthedocs.io/en/stable/) 
+
+[DSC](https://stephenslab.github.io/dsc-wiki/overview)

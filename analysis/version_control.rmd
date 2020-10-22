@@ -24,6 +24,10 @@ Getting going with Git is a little obnoxious but once you are using it, it makes
 
 If a repository is being tracked by Git, each "commit" has a unique identifier. If/when the time comes that you need to reproduce something you did years ago, you will need to be able to locate the code you used. For an analysis that you know you might want to reproduce, you can record the repository version and then even if later down the road the code changes, you will still be able to recover a snapshot of what things looked like at the time of the analysis. Of course you may also need to know the versions of any other software you were using which Git can't help you with. More on that to come!
 
+## Getting Started
+
+There are so many good Git tutorials that I won't put my own here. Check out [Chapter 18](https://r-pkgs.org/git.html) from the R Packages Book!
+
 
 ## Resources 
 

@@ -7,6 +7,9 @@ navbar:
     href: index.html
   - text: License
     href: license.html
+  right:
+  - icon: fa-github
+    href: https://github.com/jean997/rr_tools
 output:
   workflowr::wflow_html:
     toc: yes
