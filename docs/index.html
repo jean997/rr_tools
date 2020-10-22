@@ -11,7 +11,7 @@
 
 
 
-<title>Home</title>
+<title>Reprpducible Research Tools and Practices</title>
 
 <script src="site_libs/header-attrs-2.3/header-attrs.js"></script>
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
@@ -20,6 +20,9 @@
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
@@ -261,6 +264,69 @@ $(document).ready(function () {
 
 
 
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+
 
 </head>
 
@@ -268,6 +334,16 @@ $(document).ready(function () {
 
 
 <div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row-fluid">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
 
 
 
@@ -280,7 +356,7 @@ $(document).ready(function () {
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="index.html">Reproducible Research Tools and Tips</a>
+      <a class="navbar-brand" href="index.html">RR Tools and Tips</a>
     </div>
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
@@ -307,7 +383,7 @@ $(document).ready(function () {
 
 
 
-<h1 class="title toc-ignore">Home</h1>
+<h1 class="title toc-ignore">Reprpducible Research Tools and Practices</h1>
 
 </div>
 
@@ -363,28 +439,32 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomjean997rrtoolstree3180fcbe351a05e952b9aeb02076b363b44538a7targetblank3180fcba"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/jean997/rr_tools/tree/3180fcbe351a05e952b9aeb02076b363b44538a7" target="_blank">3180fcb</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomjean997rrtoolstreeb1ec62c7970763cbc875eb75c4bee9e22bbce18ctargetblankb1ec62ca"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/jean997/rr_tools/tree/b1ec62c7970763cbc875eb75c4bee9e22bbce18c" target="_blank">b1ec62c</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcomjean997rrtoolstree3180fcbe351a05e952b9aeb02076b363b44538a7targetblank3180fcba" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomjean997rrtoolstreeb1ec62c7970763cbc875eb75c4bee9e22bbce18ctargetblankb1ec62ca" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version <a href="https://github.com/jean997/rr_tools/tree/3180fcbe351a05e952b9aeb02076b363b44538a7" target="_blank">3180fcb</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version <a href="https://github.com/jean997/rr_tools/tree/b1ec62c7970763cbc875eb75c4bee9e22bbce18c" target="_blank">b1ec62c</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
 <p>
 Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
 </p>
 <pre><code>
 Ignored files:
+    Ignored:    .Rhistory
     Ignored:    .Rproj.user/
 
 Untracked files:
     Untracked:  README.html
-    Untracked:  analysis/exercise.rmd
+    Untracked:  exercise.rmd
     Untracked:  figure/
+
+Unstaged changes:
+    Modified:   analysis/_site.yml
 
 </code></pre>
 <p>
@@ -423,6 +503,40 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/jean997/rr_tools/blob/b1ec62c7970763cbc875eb75c4bee9e22bbce18c/analysis/index.Rmd" target="_blank">b1ec62c</a>
+</td>
+<td>
+jean997
+</td>
+<td>
+2020-10-22
+</td>
+<td>
+wflow_publish(fl)
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/jean997/rr_tools/366d288d14dbc38d9a3d7213e518a6f6cd0fd2ef/docs/index.html" target="_blank">366d288</a>
+</td>
+<td>
+jean997
+</td>
+<td>
+2020-10-22
+</td>
+<td>
+Build site.
+</td>
+</tr>
 <tr>
 <td>
 Rmd
@@ -677,10 +791,25 @@ Start workflowr project.
 <li>This website doesn’t attempt to give thorough tutorials. It is more of an aggregation of useful things that have already been well documented others. I’ll do my best to supply all the links you need to get going with each thing. Please let me know if you find a broken link of if you’ve found something useful you want to add.</li>
 <li>I am mostly an R user so some of these tools are fairly R focused but in a lot of cases similar principles apply across languages.</li>
 </ul>
-<p>This website was built using <code>workflowr</code> which is covered in the section on “Workbooks and Reports” below!</p>
+<p>This website was built using <code>workflowr</code> which is covered in the section on <a href="workbooks.html">Workbooks and Reports</a>.</p>
 </div>
 <div id="what-is-reproducibility" class="section level2">
 <h2>What is Reproducibility?</h2>
+<p>Reproducibility has to do with regenerating results that are reported in scientific literature. There are different ways that results might be regenerated which mean different things about the reliability of the result. We say that:</p>
+<p>The result is <strong>repeatable</strong> if the original investigators can regenerate published results from the original data.</p>
+<p>The result is <strong>reproducible</strong> if different investigators can regenerate the results, potentially using materials and instructions obtained from the original investigators.</p>
+<p>The result is <strong>replicable</strong> if new investigators can reach the same conclusions from a new experiment/sample.</p>
+<p>Scientific integrity requires us to pay attention to ensuring all three of these features. Here we are focusing on technical tools and practices that help guarantee repeatability and reproducibility. We won’t address errors in experimental design or data collection.</p>
+</div>
+<div id="what-does-reproducible-statistical-research-look-like" class="section level2">
+<h2>What Does Reproducible Statistical Research Look Like?</h2>
+<p>Some results may be nominally reproducible in that authors promise “code and data on reasonable request” but how often can these results actually be reproduced? According to <a href="">Richard McElreath et al</a> not as often as we would like! What can you do to make sure your results are easily reproducible and you are not scrambling if someone asks you for the results years later?</p>
+<ul>
+<li>Code is publicly available and well documented.</li>
+<li>Data is publicly available if possible.</li>
+<li>Code can be run on a reasonable range of computing systems.</li>
+<li>Analysis is well documented enough that it can be run by another without help from the authors.</li>
+</ul>
 </div>
 <div id="effort-pain-and-learning-curves" class="section level2">
 <h2>Effort, Pain, and Learning Curves</h2>
@@ -742,6 +871,8 @@ footer is added to webpages before the MathJax javascript. -->
 
 
 
+</div>
+</div>
 
 </div>
 
@@ -774,6 +905,32 @@ $(document).ready(function () {
 
 <!-- code folding -->
 
+<script>
+$(document).ready(function ()  {
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
 
 <!-- dynamically load mathjax for compatibility with self-contained -->
 <script>
