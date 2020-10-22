@@ -1,9 +1,9 @@
 ---
-title: "Home"
+title: "Reprpducible Research Tools and Practices"
 site: workflowr::wflow_site
 output:
   workflowr::wflow_html:
-    toc: false
+    toc: true
 editor_options:
   chunk_output_type: console
 ---
@@ -18,9 +18,31 @@ Here are some caveats before we get going:
 + This website doesn't attempt to give thorough tutorials. It is more of an aggregation of useful things that have already been well documented others. I'll do my best to supply all the links you need to get going with each thing. Please let me know if you find a broken link of if you've found something useful you want to add.
 + I am mostly an R user so some of these tools are fairly R focused but in a lot of cases similar principles apply across languages. 
 
-This website was built using `workflowr` which is covered in the section on "Workbooks and Reports" below!
+This website was built using `workflowr` which is covered in the section on [Workbooks and Reports](workbooks.html).
 
 ## What is Reproducibility?
+
+Reproducibility has to do with regenerating results that are reported in scientific literature. 
+There are different ways that results might be regenerated which mean different things about the reliability of the result. We say that:
+
+The result is **repeatable** if the original investigators can regenerate published results from the original data. 
+
+The result is **reproducible** if different investigators can regenerate the results, potentially using materials and instructions obtained from the original investigators. 
+
+The result is **replicable** if new investigators can reach the same conclusions from a new experiment/sample.
+
+Scientific integrity requires us to pay attention to ensuring all three of these features. Here we are focusing on technical tools and practices that help guarantee repeatability and reproducibility. We won't address errors in experimental design or data collection. 
+
+
+## What Does Reproducible Statistical Research Look Like?
+
+Some results may be nominally reproducible in that authors promise "code and data on reasonable request" but how often can these results actually be reproduced? According to [Richard McElreath et al]() not as often as we would like! What can you do to make sure your results are easily reproducible and you are not scrambling if someone asks you for the results years later?
+
++ Code is publicly available and well documented.
++ Data is publicly available if possible. 
++ Code can be run on a reasonable range of computing systems. 
++ Analysis is well documented enough that it can be run by another without help from the authors. 
+
 
 ## Effort, Pain, and Learning Curves
 
