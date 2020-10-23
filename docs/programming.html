@@ -11,11 +11,10 @@
 
 <meta name="author" content="Jean Morrison" />
 
-<meta name="date" content="2020-10-22" />
+<meta name="date" content="2020-10-23" />
 
 <title>Programing Tips for Reproducibility</title>
 
-<script src="site_libs/header-attrs-2.3/header-attrs.js"></script>
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
@@ -38,8 +37,6 @@ div.section {
   padding-top: 12px;
 }
 </style>
-
-
 
 <style type="text/css">code{white-space: pre;}</style>
 <style type="text/css">
@@ -387,7 +384,7 @@ div.tocify {
 
 <h1 class="title toc-ignore">Programing Tips for Reproducibility</h1>
 <h4 class="author">Jean Morrison</h4>
-<h4 class="date">2020-10-22</h4>
+<h4 class="date">2020-10-23</h4>
 
 </div>
 
@@ -412,7 +409,7 @@ div.tocify {
 <div class="tab-content">
 <div id="summary" class="tab-pane fade in active">
 <p>
-<strong>Last updated:</strong> 2020-10-22
+<strong>Last updated:</strong> 2020-10-23
 </p>
 <p>
 <strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 7 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 0
@@ -460,7 +457,7 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 </div>
 <div id="strongSeedstrongcodesetseed20201021code" class="panel-collapse collapse">
 <div class="panel-body">
-<p>The command <code>set.seed(20201021)</code> was run prior to running the code in the R Markdown file. Setting a seed ensures that any results that rely on randomness, e.g. subsampling or permutations, are reproducible.</p>
+<p>The command <code>set.seed(20201021)</code> was run prior to running the code in the R Markdown file. Setting a seed ensures that any results that rely on randomness, e.g. subsampling or permutations, are reproducible.</p>
 </div>
 </div>
 </div>
@@ -503,16 +500,16 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomjean997rrtoolstreeb1ec62c7970763cbc875eb75c4bee9e22bbce18ctargetblankb1ec62ca"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/jean997/rr_tools/tree/b1ec62c7970763cbc875eb75c4bee9e22bbce18c" target="_blank">b1ec62c</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomjean997rrtoolstree1e8ece5ff11f07e7d8c3e8ed34436a65aa7ff4f3targetblank1e8ece5a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/jean997/rr_tools/tree/1e8ece5ff11f07e7d8c3e8ed34436a65aa7ff4f3" target="_blank">1e8ece5</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcomjean997rrtoolstreeb1ec62c7970763cbc875eb75c4bee9e22bbce18ctargetblankb1ec62ca" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomjean997rrtoolstree1e8ece5ff11f07e7d8c3e8ed34436a65aa7ff4f3targetblank1e8ece5a" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version <a href="https://github.com/jean997/rr_tools/tree/b1ec62c7970763cbc875eb75c4bee9e22bbce18c" target="_blank">b1ec62c</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version <a href="https://github.com/jean997/rr_tools/tree/1e8ece5ff11f07e7d8c3e8ed34436a65aa7ff4f3" target="_blank">1e8ece5</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
 <p>
 Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
@@ -524,11 +521,9 @@ Ignored files:
 
 Untracked files:
     Untracked:  README.html
-    Untracked:  exercise.rmd
     Untracked:  figure/
-
-Unstaged changes:
-    Modified:   analysis/_site.yml
+    Untracked:  temp.html
+    Untracked:  temp.rmd
 
 </code></pre>
 <p>
@@ -567,6 +562,40 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/jean997/rr_tools/blob/1e8ece5ff11f07e7d8c3e8ed34436a65aa7ff4f3/analysis/programming.rmd" target="_blank">1e8ece5</a>
+</td>
+<td>
+jean997
+</td>
+<td>
+2020-10-23
+</td>
+<td>
+wflow_publish(all = TRUE)
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/jean997/rr_tools/496bc7a7d1d485f2fe3752e425c1b71e8bc0ff15/docs/programming.html" target="_blank">496bc7a</a>
+</td>
+<td>
+jean997
+</td>
+<td>
+2020-10-22
+</td>
+<td>
+Build site.
+</td>
+</tr>
 <tr>
 <td>
 html
@@ -709,7 +738,8 @@ md5sum -c myfile.md5 ## Check if the MD5 sum has changed</code></pre>
 <ul>
 <li><p>If you need to do the same task more than once write a function.</p></li>
 <li><p>If you have written more than one function, make a package. <a href="https://r-pkgs.org/">R Pakcages</a> by Hadley Wickham is great and will show you how to do it.</p></li>
-<li><p>Document your code! Document your package using <code>roxygen2</code> (see <a href="https://r-pkgs.org/man.html">Chapter 10</a>). Later write some vignettes so you can remember how to use it and so others can easily figure it out.</p></li>
+<li><p>Document your code! Document your package using <code>roxygen2</code> (see <a href="https://r-pkgs.org/man.html">Chapter 10</a> and <a href="https://kbroman.org/pkg_primer/pages/docs.html">Karl Broman’s Tutorial</a>).</p></li>
+<li><p>For more developed packages, write some vignettes so you can remember how to use it and so others can easily figure it out.</p></li>
 <li><p>Include parameter checks in your functions. If you know properties about the inputs like that they should be positive or the dimensions of two inputs should match, check that and have your function error if something unexpected is provided. In R you can use the functions <code>warning()</code>, <code>stop()</code> and <code>stopifnot()</code> to give your user feedback.</p></li>
 <li><p>Consider adding unit tests to your code using <code>testthat</code> for R.</p></li>
 <li><p>If you want, you can make a website for your package with <a href="https://pkgdown.r-lib.org/articles/pkgdown.html"><code>pkgedown</code></a>. <code>pkgdown</code> will take all the documentation for your package and turn it into a website.</p></li>
@@ -735,21 +765,16 @@ md5sum -c myfile.md5 ## Check if the MD5 sum has changed</code></pre>
 </p>
 <div id="workflowr-sessioninfo" class="collapse">
 <pre class="r"><code>sessionInfo()</code></pre>
-<pre><code>R version 4.0.3 (2020-10-10)
-Platform: x86_64-pc-linux-gnu (64-bit)
-Running under: Ubuntu 18.04.5 LTS
+<pre><code>R version 3.6.3 (2020-02-29)
+Platform: x86_64-apple-darwin15.6.0 (64-bit)
+Running under: macOS Catalina 10.15.7
 
 Matrix products: default
-BLAS:   /usr/lib/x86_64-linux-gnu/openblas/libblas.so.3
-LAPACK: /usr/lib/x86_64-linux-gnu/libopenblasp-r0.2.20.so
+BLAS:   /Library/Frameworks/R.framework/Versions/3.6/Resources/lib/libRblas.0.dylib
+LAPACK: /Library/Frameworks/R.framework/Versions/3.6/Resources/lib/libRlapack.dylib
 
 locale:
- [1] LC_CTYPE=en_US.UTF-8       LC_NUMERIC=C              
- [3] LC_TIME=en_US.UTF-8        LC_COLLATE=en_US.UTF-8    
- [5] LC_MONETARY=en_US.UTF-8    LC_MESSAGES=en_US.UTF-8   
- [7] LC_PAPER=en_US.UTF-8       LC_NAME=C                 
- [9] LC_ADDRESS=C               LC_TELEPHONE=C            
-[11] LC_MEASUREMENT=en_US.UTF-8 LC_IDENTIFICATION=C       
+[1] en_US.UTF-8/en_US.UTF-8/en_US.UTF-8/C/en_US.UTF-8/en_US.UTF-8
 
 attached base packages:
 [1] stats     graphics  grDevices utils     datasets  methods   base     
@@ -758,13 +783,13 @@ other attached packages:
 [1] workflowr_1.6.2
 
 loaded via a namespace (and not attached):
- [1] Rcpp_1.0.5       rstudioapi_0.11  whisker_0.4      knitr_1.30      
+ [1] Rcpp_1.0.5       rstudioapi_0.11  whisker_0.4      knitr_1.29      
  [5] magrittr_1.5     R6_2.4.1         rlang_0.4.7      stringr_1.4.0   
- [9] tools_4.0.3      xfun_0.18        git2r_0.27.1     htmltools_0.5.0 
+ [9] tools_3.6.3      xfun_0.17        git2r_0.27.1     htmltools_0.5.0 
 [13] ellipsis_0.3.1   rprojroot_1.3-2  yaml_2.2.1       digest_0.6.25   
 [17] tibble_3.0.3     lifecycle_0.2.0  crayon_1.3.4     later_1.1.0.1   
 [21] vctrs_0.3.4      promises_1.1.1   fs_1.5.0         glue_1.4.2      
-[25] evaluate_0.14    rmarkdown_2.3    stringi_1.5.3    compiler_4.0.3  
+[25] evaluate_0.14    rmarkdown_2.3    stringi_1.5.3    compiler_3.6.3  
 [29] pillar_1.4.6     backports_1.1.10 httpuv_1.5.4     pkgconfig_2.0.3 </code></pre>
 </div>
 </div>
@@ -781,8 +806,6 @@ footer is added to webpages before the MathJax javascript. -->
     "HTML-CSS": { availableFonts: ["TeX"] }
   });
 </script>
-
-
 
 
 </div>
