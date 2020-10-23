@@ -65,7 +65,7 @@ A good command to know about is `knitr::purl` which will extract only the code b
 
 This is a great way to aggregate all of the analyses you've done for a project in one place so it is easy to see and share your work. It is also useful for making a companion site for your paper which may ultimately just be a cleaned up version of the research site you've been using throughout the project. 
 
-[Here]() is an example of paper companion site built using `workflowr`. 
+[Here](https://jdblischak.github.io/singlecell-qtl/) is an example of paper companion site built using `workflowr`. 
 
 
 

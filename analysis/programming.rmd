@@ -30,7 +30,9 @@ Because I am an R programmer a lot of these are given with sort of an R cadence 
 
 + If you have written more than one function, make a package. [R Pakcages](https://r-pkgs.org/) by Hadley Wickham is great and will show you how to do it.
 
-+ Document your code! Document your package using `roxygen2` (see [Chapter 10](https://r-pkgs.org/man.html)). Later write some vignettes so you can remember how to use it and so others can easily figure it out. 
++ Document your code! Document your package using `roxygen2` (see [Chapter 10](https://r-pkgs.org/man.html) and [Karl Broman's Tutorial](https://kbroman.org/pkg_primer/pages/docs.html)). 
+
++ For more developed packages, write some vignettes so you can remember how to use it and so others can easily figure it out. 
 
 + Include parameter checks in your functions. If you know properties about the inputs like that they should be positive or the dimensions of two inputs should match, check that and have your function error if something unexpected is provided. In R you can use the functions `warning()`, `stop()` and `stopifnot()` to give your user feedback. 
 
