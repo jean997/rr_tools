@@ -43,18 +43,20 @@ Some results may be nominally reproducible in that authors promise "code and dat
 + Code is publicly available and well documented.
 + Data is publicly available if possible. 
 + Code can be run on a reasonable range of computing systems. 
-+ Analysis is well documented enough that it can be run by another without help from the authors. 
++ Analysis is well enough documented that it can be run by another without help from the authors. 
 
 
 ## Effort, Pain, and Learning Curves
 
-Each step that you take towards reproducibility will require some modification of your work habits. It is natural to work initially in ways that turn out later to be messy and hard to recreate. This is why it is so common for people to lose files or send the wrong version of something. Learning new tools, installing software, and creating new habits all take up time and can be awkward and uncomfortable. The payoff is in fewer headaches down the road and confidence in the results you report or publish on. 
+Each step that you take towards reproducibility will require some modification of your work habits. It is natural to work initially in ways that turn out to be messy and hard to recreate. This is why it is so common for people to lose files or send the wrong version of something. Learning new tools, installing software, and creating new habits all take up time and can be awkward and uncomfortable. The payoff is in fewer headaches down the road and confidence in the results you report or publish on. 
 
-Developing your work habits and your programming skills is an ongoing project. I organized the content below into categories that are about the order that I have adopted different habits but fee free to hop around. 
+Developing your work habits and your programming skills is an ongoing, incremental project. It's fine to take one step at a time as you learn from you experiences.  
 
 
 
 ## Content
+
+The content in this section is grouped into categories that are approximately ordered from low to high effort. 
 
 1. [File Names and Directory Structure](file_org.html)
 1. [Version Control (Git)](version_control.html)
