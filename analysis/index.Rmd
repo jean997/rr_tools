@@ -15,10 +15,12 @@ The aim of this website is to give an overview of several tools for reproducible
 Here are some caveats before we get going: 
 
 + This is not an exhaustive list. If you have something that you use and like I would love to know about it and add it in. Feel free to open a [GitHub Issue](https://github.com/jean997/rr_tools/issues) and let me know about it!
-+ This website doesn't attempt to give thorough tutorials. It is more of an aggregation of useful things that have already been well documented others. I'll do my best to supply all the links you need to get going with each thing. Please let me know if you find a broken link of if you've found something useful you want to add.
++ This website doesn't attempt to give thorough tutorials. It is more of an aggregation of useful things that have already been well documented others elsewhere. I'll do my best to supply all the links you need to get going with each thing. Please let me know if you find a broken link of if you've found something useful you want to add.
 + I am mostly an R user so some of these tools are fairly R focused but in a lot of cases similar principles apply across languages. 
 
 This website was built using `workflowr` which is covered in the section on [Workbooks and Reports](workbooks.html).
+
+[Here](2020-10-24_reproducibility_bbag.pptx) is a set of slides that cover the material here. 
 
 ## What is Reproducibility?
 
