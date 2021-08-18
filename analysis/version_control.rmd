@@ -34,3 +34,5 @@ There are so many good Git tutorials that I won't put my own here. Check out [Ch
 [Happy Git with R](https://happygitwithr.com/)
 
 [Git chapter from R Packages Book](https://r-pkgs.org/git.html)
+
+[Illustrated Guide to Git](https://maggieappleton.com/git-mistakes)

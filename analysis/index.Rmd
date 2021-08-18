@@ -85,6 +85,8 @@ The content in this section is grouped into categories that are approximately or
 
 [Happy Git with R](https://happygitwithr.com/) by Jenny Bryan
 
+[Illustrated Guide to Git](https://maggieappleton.com/git-mistakes)
+
 [R Markdown Cookbook](https://bookdown.org/yihui/rmarkdown-cookbook/) by Yihui Xie, Christophe Dervieux, and Emily Riederer
 
 [Conda](https://docs.conda.io/projects/conda/en/latest/)
