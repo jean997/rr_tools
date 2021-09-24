@@ -19,9 +19,11 @@ For Python there is [Juptyr Notebook/Jupityr Lab](https://jupyter.org/) which I 
 
 ## When to Use Dynamic Reports
 
-You will probably use dynamic reports most often when you are summarizing your analysis for yourself or for someone you want to share it with. It is possible to make dynamic reports look more or less "professional" by controlling what output to show. For your adviser you might let all the code show while for someone who cares less about the code you might hide most of it and only show plots and formatted tables. 
+You will probably use dynamic reports most often when you are summarizing your analysis for yourself or for someone you want to share it with. It is possible to make dynamic reports look more or less "professional" by controlling what output to show. For your adviser, you might let all the code show while, you might hide most of the code for someone that won't find it as interesting. 
 
-I have used R Markdown and Sweave for "final" reports that I sent to collaborators (I think I also used one for my applied exam in graduate school) but I don't use them for manuscripts that go to journals because, typically journals either want the source LaTex code to compile all on its own without running anything extra or they want a Word document. One tool that is useful for these cases is the [`xtable` R package](https://cran.r-project.org/web/packages/xtable/vignettes/xtableGallery.pdf) which allows you to print R tables out as LaTex formatted code. You might use `xtable` inside a dynamic report to make it look nice or you might copy the output and paste it into your (static) LaTex file. 
+I have used R Markdown and Sweave for "final" reports that I sent to collaborators (I think I also used one for my applied exam in graduate school) but I don't use them for manuscripts that go to journals. This is because journals usually either want the source LaTex code to compile all on its own without running anything extra or they want a Word document. 
+
+One tool that is useful for either using in a dynamic report or for transferring a table from R to LaTex is [`xtable` R package](https://cran.r-project.org/web/packages/xtable/vignettes/xtableGallery.pdf) which allows you to print R tables out as LaTex formatted code. 
 
 ## R Markdown
 
@@ -67,7 +69,7 @@ This is a great way to aggregate all of the analyses you've done for a project i
 
 [Here](https://jdblischak.github.io/singlecell-qtl/) is an example of paper companion site built using `workflowr`. 
 
-
+Find more examples [here](https://workflowr.io/).
 
 ## Envirionment
 
@@ -75,6 +77,6 @@ One piece of computing research that can be very challenging to track is your co
 
 1. `sessionInfo()`. The easiest thing you can do is just make a note of what R packages you used at the time of your analysis. If you record your analysis in R Markdown, add a `sessionInfo()` command to the end to make a note of all the versions of loaded packages. This doesn't help you with software outside of R but it can go a long way for chasing down discrepancies. If you use `workflowr`, this is added automatically. 
 
-1. [Conda](https://docs.conda.io/projects/conda/en/latest/) is a package management system (I like Miniconda). For example, suppose I want to make sure that whoever runs my code has a specific version of R and a specific version of python. I can build a conda environment, load that environment and I will be using those specific versions. Then if I need a different version for a different project I can just switch environments. 
+1. [Conda](https://docs.conda.io/projects/conda/en/latest/) is a package management system (I like Miniconda) that lets you easily switch between or distribute software environments. For example, suppose I want to make sure that users of my code have specific versions of R and python. I can build a conda environment to distribute with my code. The user can then switch to that environment by activating it, preventing issues like version conflicts.
 
 1. [Docker](https://www.docker.com/resources/what-container) lets you package your entire software environment into a container. I have never used Docker so I will leave it at that! 

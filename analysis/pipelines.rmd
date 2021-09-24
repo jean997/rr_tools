@@ -19,11 +19,11 @@ Step 3: Run script final.py with A and B1 to B100 to generate final_output.tsv
 
 This is an ok way to do it! You have documentation that tells you what you did and all the code exists in one directory. Chances are, if you had to, you could recreate `final_output.tsv`, especially if you saved some info about what package versions you used. 
 
-## What can go wrong why do it differently?
+## What can go wrong, why do it differently?
 
 + Your colleague would like to use your pipeline but finds it complicated. Also they would like to use slightly different parameters in one of the scripts. You could send them an email that says "Here is the code, you just need to change lines 7 and 25 of a.sh and line 15 of b.R." but there is a lot of room for error there. 
 
-+ You accidentally modify an file A and don't notice before you regenerate your final result. 
++ You accidentally modify file A and don't notice before you regenerate your final result. 
 
 + You edit one of your scripts after generating the result and forget to rerun the pipeline. 
 
@@ -73,4 +73,4 @@ To start to get an idea of how it works [start here](https://snakemake.readthedo
 
 ## DSC
 
-[DSC](https://stephenslab.github.io/dsc-wiki/overview) is a tool created by Gao Wang and Matthew Stephens. It stands for "dynamic statistical comparisons" and it is a tool for running simulations. Like Snakemake, DSC takes a bit of effort to learn. Once that effort is put in though the payoff is immediate. You never have to write another loop function to run simulations for you. DSC also takes care of setting seeds for each simulation so every analysis is reproducible. Re-running the same DSC job should give exactly the same results. 
+[DSC](https://stephenslab.github.io/dsc-wiki/overview)(Dynamic Statistical Comparisons) is a tool created by Gao Wang and Matthew Stephens for running simulations. Like Snakemake, DSC takes a bit of effort to learn. Once that effort is put in though, the payoff is big. You never have to write another loop function to run simulations for you. DSC also takes care of setting seeds for each simulation so every analysis is reproducible. Re-running the same DSC job should give exactly the same results. 
