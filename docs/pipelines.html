@@ -11,17 +11,26 @@
 
 <meta name="author" content="Jean Morrison" />
 
-<meta name="date" content="2020-10-22" />
+<meta name="date" content="2021-09-24" />
 
 <title>Pipelines</title>
 
-<script src="site_libs/header-attrs-2.3/header-attrs.js"></script>
-<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<script src="site_libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
 <script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
 <link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
 <script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
@@ -41,12 +50,16 @@ div.section {
 
 
 
-<style type="text/css">code{white-space: pre;}</style>
 <style type="text/css">
-  pre:not([class]) {
-    background-color: white;
-  }
-</style>
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+<style type="text/css">code{white-space: pre;}</style>
 <script type="text/javascript">
 if (window.hljs) {
   hljs.configure({languages: []});
@@ -59,32 +72,7 @@ if (window.hljs) {
 
 
 
-<style type="text/css">
-h1 {
-  font-size: 34px;
-}
-h1.title {
-  font-size: 38px;
-}
-h2 {
-  font-size: 30px;
-}
-h3 {
-  font-size: 24px;
-}
-h4 {
-  font-size: 18px;
-}
-h5 {
-  font-size: 16px;
-}
-h6 {
-  font-size: 12px;
-}
-.table th:not([align]) {
-  text-align: left;
-}
-</style>
+
 
 
 
@@ -94,10 +82,6 @@ h6 {
   max-width: 940px;
   margin-left: auto;
   margin-right: auto;
-}
-code {
-  color: inherit;
-  background-color: rgba(0, 0, 0, 0.04);
 }
 img {
   max-width:100%;
@@ -114,40 +98,13 @@ button.code-folding-btn:focus {
 summary {
   display: list-item;
 }
+pre code {
+  padding: 0;
+}
 </style>
 
 
 <style type="text/css">
-/* padding for bootstrap navbar */
-body {
-  padding-top: 51px;
-  padding-bottom: 40px;
-}
-/* offset scroll position for anchor links (for fixed navbar)  */
-.section h1 {
-  padding-top: 56px;
-  margin-top: -56px;
-}
-.section h2 {
-  padding-top: 56px;
-  margin-top: -56px;
-}
-.section h3 {
-  padding-top: 56px;
-  margin-top: -56px;
-}
-.section h4 {
-  padding-top: 56px;
-  margin-top: -56px;
-}
-.section h5 {
-  padding-top: 56px;
-  margin-top: -56px;
-}
-.section h6 {
-  padding-top: 56px;
-  margin-top: -56px;
-}
 .dropdown-submenu {
   position: relative;
 }
@@ -175,7 +132,7 @@ body {
   margin-right: -10px;
 }
 .dropdown-submenu:hover>a:after {
-  border-left-color: #ffffff;
+  border-left-color: #adb5bd;
 }
 .dropdown-submenu.pull-left {
   float: none;
@@ -187,7 +144,7 @@ body {
 }
 </style>
 
-<script>
+<script type="text/javascript">
 // manage active state of menu based on current page
 $(document).ready(function () {
   // active menu anchor
@@ -198,10 +155,23 @@ $(document).ready(function () {
   var menuAnchor = $('a[href="' + href + '"]');
 
   // mark it active
-  menuAnchor.parent().addClass('active');
+  menuAnchor.tab('show');
 
   // if it's got a parent navbar menu mark it active as well
   menuAnchor.closest('li.dropdown').addClass('active');
+
+  // Navbar adjustments
+  var navHeight = $(".navbar").first().height() + 15;
+  var style = document.createElement('style');
+  var pt = "padding-top: " + navHeight + "px; ";
+  var mt = "margin-top: -" + navHeight + "px; ";
+  var css = "";
+  // offset scroll position for anchor links (for fixed navbar)
+  for (var i = 1; i <= 6; i++) {
+    css += ".section h" + i + "{ " + pt + mt + "}\n";
+  }
+  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
+  document.head.appendChild(style);
 });
 </script>
 
@@ -213,7 +183,6 @@ $(document).ready(function () {
   max-height: 500px;
   min-height: 44px;
   overflow-y: auto;
-  background: white;
   border: 1px solid #ddd;
   border-radius: 4px;
 }
@@ -339,7 +308,7 @@ div.tocify {
 
 
 <!-- setup 3col/9col grid for toc_float and main content  -->
-<div class="row-fluid">
+<div class="row">
 <div class="col-xs-12 col-sm-4 col-md-3">
 <div id="TOC" class="tocify">
 </div>
@@ -381,13 +350,13 @@ div.tocify {
   </div><!--/.container -->
 </div><!--/.navbar -->
 
-<div class="fluid-row" id="header">
+<div id="header">
 
 
 
 <h1 class="title toc-ignore">Pipelines</h1>
 <h4 class="author">Jean Morrison</h4>
-<h4 class="date">2020-10-22</h4>
+<h4 class="date">2021-09-24</h4>
 
 </div>
 
@@ -412,7 +381,7 @@ div.tocify {
 <div class="tab-content">
 <div id="summary" class="tab-pane fade in active">
 <p>
-<strong>Last updated:</strong> 2020-10-22
+<strong>Last updated:</strong> 2021-09-24
 </p>
 <p>
 <strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 7 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 0
@@ -503,16 +472,16 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomjean997rrtoolstreeb1ec62c7970763cbc875eb75c4bee9e22bbce18ctargetblankb1ec62ca"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/jean997/rr_tools/tree/b1ec62c7970763cbc875eb75c4bee9e22bbce18c" target="_blank">b1ec62c</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomjean997rrtoolstree1c49e108ceef5e564b8044bdda76f5d28aa9ab47targetblank1c49e10a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/jean997/rr_tools/tree/1c49e108ceef5e564b8044bdda76f5d28aa9ab47" target="_blank">1c49e10</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcomjean997rrtoolstreeb1ec62c7970763cbc875eb75c4bee9e22bbce18ctargetblankb1ec62ca" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomjean997rrtoolstree1c49e108ceef5e564b8044bdda76f5d28aa9ab47targetblank1c49e10a" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version <a href="https://github.com/jean997/rr_tools/tree/b1ec62c7970763cbc875eb75c4bee9e22bbce18c" target="_blank">b1ec62c</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version <a href="https://github.com/jean997/rr_tools/tree/1c49e108ceef5e564b8044bdda76f5d28aa9ab47" target="_blank">1c49e10</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
 <p>
 Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
@@ -524,11 +493,7 @@ Ignored files:
 
 Untracked files:
     Untracked:  README.html
-    Untracked:  exercise.rmd
     Untracked:  figure/
-
-Unstaged changes:
-    Modified:   analysis/_site.yml
 
 </code></pre>
 <p>
@@ -541,120 +506,9 @@ Note that any generated files, e.g. HTML, png, CSS, etc., are not included in t
 <hr>
 </div>
 <div id="versions" class="tab-pane fade">
-
 <p>
-These are the previous versions of the repository in which changes were made to the R Markdown (<code>analysis/pipelines.rmd</code>) and HTML (<code>docs/pipelines.html</code>) files. If you’ve configured a remote Git repository (see <code>?wflow_git_remote</code>), click on the hyperlinks in the table below to view the files as they were in that past version.
+There are no past versions. Publish this analysis with <code>wflow_publish()</code> to start tracking its development.
 </p>
-<div class="table-responsive">
-<table class="table table-condensed table-hover">
-<thead>
-<tr>
-<th>
-File
-</th>
-<th>
-Version
-</th>
-<th>
-Author
-</th>
-<th>
-Date
-</th>
-<th>
-Message
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-html
-</td>
-<td>
-<a href="https://rawcdn.githack.com/jean997/rr_tools/366d288d14dbc38d9a3d7213e518a6f6cd0fd2ef/docs/pipelines.html" target="_blank">366d288</a>
-</td>
-<td>
-jean997
-</td>
-<td>
-2020-10-22
-</td>
-<td>
-Build site.
-</td>
-</tr>
-<tr>
-<td>
-Rmd
-</td>
-<td>
-<a href="https://github.com/jean997/rr_tools/blob/3180fcbe351a05e952b9aeb02076b363b44538a7/analysis/pipelines.rmd" target="_blank">3180fcb</a>
-</td>
-<td>
-jean997
-</td>
-<td>
-2020-10-22
-</td>
-<td>
-wflow_publish(all = TRUE)
-</td>
-</tr>
-<tr>
-<td>
-html
-</td>
-<td>
-<a href="https://rawcdn.githack.com/jean997/rr_tools/3180fcbe351a05e952b9aeb02076b363b44538a7/docs/pipelines.html" target="_blank">3180fcb</a>
-</td>
-<td>
-jean997
-</td>
-<td>
-2020-10-22
-</td>
-<td>
-wflow_publish(all = TRUE)
-</td>
-</tr>
-<tr>
-<td>
-html
-</td>
-<td>
-<a href="https://rawcdn.githack.com/jean997/rr_tools/b0d3bd7cc0584479c83c51e981f46a10aef3b25e/docs/pipelines.html" target="_blank">b0d3bd7</a>
-</td>
-<td>
-jean997
-</td>
-<td>
-2020-10-21
-</td>
-<td>
-Build site.
-</td>
-</tr>
-<tr>
-<td>
-Rmd
-</td>
-<td>
-<a href="https://github.com/jean997/rr_tools/blob/3e16a7b0a8c50bfbe1aaf94961fa20474e8b7de0/analysis/pipelines.rmd" target="_blank">3e16a7b</a>
-</td>
-<td>
-jean997
-</td>
-<td>
-2020-10-21
-</td>
-<td>
-add pipelines, programming, workbooks
-</td>
-</tr>
-</tbody>
-</table>
-</div>
 <hr>
 </div>
 </div>
@@ -668,10 +522,10 @@ Step 3: Run script final.py with A and B1 to B100 to generate final_output.tsv</
 <p>This is an ok way to do it! You have documentation that tells you what you did and all the code exists in one directory. Chances are, if you had to, you could recreate <code>final_output.tsv</code>, especially if you saved some info about what package versions you used.</p>
 </div>
 <div id="what-can-go-wrong-why-do-it-differently" class="section level2">
-<h2>What can go wrong why do it differently?</h2>
+<h2>What can go wrong, why do it differently?</h2>
 <ul>
 <li><p>Your colleague would like to use your pipeline but finds it complicated. Also they would like to use slightly different parameters in one of the scripts. You could send them an email that says “Here is the code, you just need to change lines 7 and 25 of a.sh and line 15 of b.R.” but there is a lot of room for error there.</p></li>
-<li><p>You accidentally modify an file A and don’t notice before you regenerate your final result.</p></li>
+<li><p>You accidentally modify file A and don’t notice before you regenerate your final result.</p></li>
 <li><p>You edit one of your scripts after generating the result and forget to rerun the pipeline.</p></li>
 </ul>
 <p>There are pipeline tools that can help you avoid at least the first two of these problems and also do a lot of the overhead of managing job submission to a cluster. I have only used Snakemake which I will describe here but there are other options.</p>
@@ -709,7 +563,7 @@ rule make_final:
 </div>
 <div id="dsc" class="section level2">
 <h2>DSC</h2>
-<p><a href="https://stephenslab.github.io/dsc-wiki/overview">DSC</a> is a tool created by Gao Wang and Matthew Stephens. It stands for “dynamic statistical comparisons” and it is a tool for running simulations. Like Snakemake, DSC takes a bit of effort to learn. Once that effort is put in though the payoff is immediate. You never have to write another loop function to run simulations for you. DSC also takes care of setting seeds for each simulation so every analysis is reproducible. Re-running the same DSC job should give exactly the same results.</p>
+<p><a href="https://stephenslab.github.io/dsc-wiki/overview">DSC</a>(Dynamic Statistical Comparisons) is a tool created by Gao Wang and Matthew Stephens for running simulations. Like Snakemake, DSC takes a bit of effort to learn. Once that effort is put in though, the payoff is big. You never have to write another loop function to run simulations for you. DSC also takes care of setting seeds for each simulation so every analysis is reproducible. Re-running the same DSC job should give exactly the same results.</p>
 <br>
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-sessioninfo" data-toggle="collapse" data-target="#workflowr-sessioninfo" style="display: block;">
@@ -718,21 +572,16 @@ rule make_final:
 </p>
 <div id="workflowr-sessioninfo" class="collapse">
 <pre class="r"><code>sessionInfo()</code></pre>
-<pre><code>R version 4.0.3 (2020-10-10)
-Platform: x86_64-pc-linux-gnu (64-bit)
-Running under: Ubuntu 18.04.5 LTS
+<pre><code>R version 4.1.1 (2021-08-10)
+Platform: x86_64-apple-darwin17.0 (64-bit)
+Running under: macOS Catalina 10.15.7
 
 Matrix products: default
-BLAS:   /usr/lib/x86_64-linux-gnu/openblas/libblas.so.3
-LAPACK: /usr/lib/x86_64-linux-gnu/libopenblasp-r0.2.20.so
+BLAS:   /Library/Frameworks/R.framework/Versions/4.1/Resources/lib/libRblas.0.dylib
+LAPACK: /Library/Frameworks/R.framework/Versions/4.1/Resources/lib/libRlapack.dylib
 
 locale:
- [1] LC_CTYPE=en_US.UTF-8       LC_NUMERIC=C              
- [3] LC_TIME=en_US.UTF-8        LC_COLLATE=en_US.UTF-8    
- [5] LC_MONETARY=en_US.UTF-8    LC_MESSAGES=en_US.UTF-8   
- [7] LC_PAPER=en_US.UTF-8       LC_NAME=C                 
- [9] LC_ADDRESS=C               LC_TELEPHONE=C            
-[11] LC_MEASUREMENT=en_US.UTF-8 LC_IDENTIFICATION=C       
+[1] en_US.UTF-8/en_US.UTF-8/en_US.UTF-8/C/en_US.UTF-8/en_US.UTF-8
 
 attached base packages:
 [1] stats     graphics  grDevices utils     datasets  methods   base     
@@ -741,14 +590,15 @@ other attached packages:
 [1] workflowr_1.6.2
 
 loaded via a namespace (and not attached):
- [1] Rcpp_1.0.5       rstudioapi_0.11  whisker_0.4      knitr_1.30      
- [5] magrittr_1.5     R6_2.4.1         rlang_0.4.7      stringr_1.4.0   
- [9] tools_4.0.3      xfun_0.18        git2r_0.27.1     htmltools_0.5.0 
-[13] ellipsis_0.3.1   rprojroot_1.3-2  yaml_2.2.1       digest_0.6.25   
-[17] tibble_3.0.3     lifecycle_0.2.0  crayon_1.3.4     later_1.1.0.1   
-[21] vctrs_0.3.4      promises_1.1.1   fs_1.5.0         glue_1.4.2      
-[25] evaluate_0.14    rmarkdown_2.3    stringi_1.5.3    compiler_4.0.3  
-[29] pillar_1.4.6     backports_1.1.10 httpuv_1.5.4     pkgconfig_2.0.3 </code></pre>
+ [1] Rcpp_1.0.7       knitr_1.34       magrittr_2.0.1   R6_2.5.1        
+ [5] rlang_0.4.11     fastmap_1.1.0    fansi_0.5.0      stringr_1.4.0   
+ [9] tools_4.1.1      xfun_0.26        utf8_1.2.2       git2r_0.28.0    
+[13] jquerylib_0.1.4  htmltools_0.5.2  ellipsis_0.3.2   rprojroot_2.0.2 
+[17] yaml_2.2.1       digest_0.6.27    tibble_3.1.4     lifecycle_1.0.0 
+[21] crayon_1.4.1     later_1.3.0      vctrs_0.3.8      promises_1.2.0.1
+[25] fs_1.5.0         glue_1.4.2       evaluate_0.14    rmarkdown_2.11  
+[29] stringi_1.7.4    compiler_4.1.1   pillar_1.6.2     httpuv_1.6.3    
+[33] pkgconfig_2.0.3 </code></pre>
 </div>
 </div>
 
@@ -777,7 +627,7 @@ footer is added to webpages before the MathJax javascript. -->
 
 // add bootstrap table styles to pandoc tables
 function bootstrapStylePandocTables() {
-  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
 }
 $(document).ready(function () {
   bootstrapStylePandocTables();
@@ -795,7 +645,7 @@ $(document).ready(function () {
 
 $(document).ready(function () {
   $('.tabset-dropdown > .nav-tabs > li').click(function () {
-    $(this).parent().toggleClass('nav-tabs-open')
+    $(this).parent().toggleClass('nav-tabs-open');
   });
 });
 </script>
@@ -804,6 +654,9 @@ $(document).ready(function () {
 
 <script>
 $(document).ready(function ()  {
+
+    // temporarily add toc-ignore selector to headers for the consistency with Pandoc
+    $('.unlisted.unnumbered').addClass('toc-ignore')
 
     // move toc-ignore selectors from section div to header
     $('div.section.toc-ignore')
